@@ -7,7 +7,9 @@ namespace ADelf\LeaderServer\Services;
 use ADelf\LeaderServer\Contracts\Workers\NotifyMessage;
 use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
+use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
 use ADelf\LeaderServer\WorkerNotify\WorkerNotifyResponse;
+use ADelf\LeaderServer\Workers\WorkRequestResponse;
 
 class WorkerNotificationService
 {
@@ -15,7 +17,7 @@ class WorkerNotificationService
     {
         $response = new WorkerNotifyResponse();
         $response->start();
-        try{
+        try {
             #TODO código para realizar request;
             $response->setSuccess();
             $response->end();
@@ -23,6 +25,19 @@ class WorkerNotificationService
             #TODO handler exception
             $response->end();
         }
+
+        return $response;
+    }
+
+    public function requestToWorker(Worker $worker, NotifyMessage $message): WorkerRequestResponse
+    {
+        $response = new WorkRequestResponse();
+        #TODO código para realizar request ao worker
+        $response
+            ->setResponse(json_encode(['teste' => 'teste'], JSON_THROW_ON_ERROR))
+            ->setCode(200)
+            ->setWorker($worker)
+            ->setMessage($message);
 
         return $response;
     }

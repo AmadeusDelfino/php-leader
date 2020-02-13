@@ -7,6 +7,7 @@ namespace ADelf\LeaderServer\Workers;
 use ADelf\LeaderServer\Contracts\Workers\NotifyMessage;
 use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\WorkerHealthCheck;
+use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
 use ADelf\LeaderServer\Services\WorkerNotificationService;
 
 class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
@@ -57,5 +58,13 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     public function halt(): void
     {
 
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function request(NotifyMessage $message): WorkerRequestResponse
+    {
+        return (new WorkerNotificationService())->requestToWorker($this, $message);
     }
 }
