@@ -4,6 +4,8 @@
 namespace ADelf\LeaderServer\Contracts\Foundation;
 
 
+use Pimple\Container;
+
 interface App
 {
     public function start(): int;
@@ -15,13 +17,7 @@ interface App
      */
     public function version(): string;
 
-    /**
-     * Get the path to the application configuration files.
-     *
-     * @param  string  $path Optionally, a path to append to the config path
-     * @return string
-     */
-    public function configPath($path = null): string;
+    public function container(): Container;
 
     /**
      * Terminate the application.
