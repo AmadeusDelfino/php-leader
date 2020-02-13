@@ -6,6 +6,7 @@ namespace ADelf\LeaderServer\Workers;
 
 use ADelf\LeaderServer\Contracts\Workers\Broadcast;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
+use ADelf\LeaderServer\Enums\WorkerActions;
 use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
 
 class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\WorkersController
@@ -46,7 +47,13 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
 
     public function haltAllWorks(): void
     {
-        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(['halt' => 'now']));
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(WorkerActions::HALT));
+        $this->broadcast($broadcast);
+    }
+
+    public function resyncWithServer():void
+    {
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(WorkerActions::RESYNC_WITH_SERVER));
         $this->broadcast($broadcast);
     }
 }
