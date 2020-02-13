@@ -39,7 +39,7 @@ class App implements \ADelf\LeaderServer\Contracts\Foundation\App
                 throw new \Exception('Provider not found:' . $provider);
             }
 
-            $this->container->register(new $provider());
+            $this->registerProvider(new $provider());
         }
     }
 
@@ -77,6 +77,6 @@ class App implements \ADelf\LeaderServer\Contracts\Foundation\App
      */
     public function registerProvider(Provider $provider)
     {
-        // TODO: Implement registerProvider() method.
+        $this->container->register($provider);
     }
 }
