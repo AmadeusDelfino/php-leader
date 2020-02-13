@@ -15,4 +15,6 @@ interface Worker
     public function request();
 
     public function healthCheck(): WorkerHealthCheck;
+
+    public function getLastNotificationResponse(): NotifyResponse;
 }
