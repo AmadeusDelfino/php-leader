@@ -45,7 +45,8 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
 
     public function notify(NotifyMessage $message): NotifyResponse
     {
-        return (new WorkerNotificationService())->notifyWorker($this, $message);
+        $this->lastNotificationResponse = (new WorkerNotificationService())->notifyWorker($this, $message);
+        return $this->lastNotificationResponse;
     }
 
     public function healthCheck(): WorkerHealthCheck

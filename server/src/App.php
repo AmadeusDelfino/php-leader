@@ -45,9 +45,13 @@ class App implements \ADelf\LeaderServer\Contracts\Foundation\App
         // TODO: Implement terminate() method.
     }
 
-    public function container(): Container
+    public function container($key = null): Container
     {
-        return $this->container;
+        if($key === null) {
+            return $this->container;
+        }
+
+        return $this->container[$key];
     }
 
     /**

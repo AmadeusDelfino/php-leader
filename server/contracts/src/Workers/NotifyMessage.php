@@ -6,6 +6,8 @@ namespace ADelf\LeaderServer\Contracts\Workers;
 
 interface NotifyMessage
 {
+    public function __construct(array $content = null);
+
     /**
      * @return mixed content of the message in raw
      */
