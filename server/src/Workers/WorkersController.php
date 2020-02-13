@@ -16,14 +16,29 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
      */
     public function addWorker(Worker $worker): \ADelf\LeaderServer\Contracts\Workers\WorkersController
     {
-        // TODO: Implement addWorker() method.
+        $this->works[] = $worker;
+
+        return $this;
     }
 
     /**
      * @inheritDoc
      */
-    public function broadcast(Broadcast $broadcast): \ADelf\LeaderServer\Contracts\Workers\WorkersController
+    public function broadcast(Broadcast $broadcast): Broadcast
     {
-        // TODO: Implement broadcast() method.
+        $message = $broadcast->getMessage();
+
+        foreach($this->works as $work) {
+            /**
+             * @var $work Worker
+             */
+            if(!$work->notify($message)->isSuccess()) {
+                $broadcast->registerFailedBroadcast($work);
+            }
+        }
+
+        $broadcast->setCompleted();
+
+        return $broadcast;
     }
 }

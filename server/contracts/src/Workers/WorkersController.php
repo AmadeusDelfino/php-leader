@@ -16,9 +16,9 @@ interface WorkersController
     /**
      * Send a broadcast message to all workers registered on the server
      * @param Broadcast $broadcast
-     * @return $this
+     * @return Broadcast
      */
-    public function broadcast(Broadcast $broadcast): self;
+    public function broadcast(Broadcast $broadcast): Broadcast;
 
 
 }

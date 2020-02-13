@@ -10,7 +10,7 @@ interface Worker
 
     public function getPort(): int;
 
-    public function notify(): int;
+    public function notify(NotifyMessage $message): NotifyResponse;
 
     public function request();
 
