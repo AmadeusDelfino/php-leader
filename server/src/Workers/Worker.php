@@ -53,4 +53,9 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     {
         // TODO: Implement healthCheck() method.
     }
+
+    public function halt(): void
+    {
+
+    }
 }

@@ -6,6 +6,7 @@ namespace ADelf\LeaderServer\Workers;
 
 use ADelf\LeaderServer\Contracts\Workers\Broadcast;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
+use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
 
 class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\WorkersController
 {
@@ -26,6 +27,7 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
      */
     public function broadcast(Broadcast $broadcast): Broadcast
     {
+        #TODO validar mensagem nulla
         $message = $broadcast->getMessage();
 
         foreach($this->works as $work) {
@@ -40,5 +42,11 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
         $broadcast->setCompleted();
 
         return $broadcast;
+    }
+
+    public function haltAllWorks(): void
+    {
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(['halt' => 'now']));
+        $this->broadcast($broadcast);
     }
 }

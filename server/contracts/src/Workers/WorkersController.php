@@ -19,4 +19,6 @@ interface WorkersController
      * @return Broadcast
      */
     public function broadcast(Broadcast $broadcast): Broadcast;
+
+    public function haltAllWorks(): void;
 }

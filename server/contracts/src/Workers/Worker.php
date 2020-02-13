@@ -19,4 +19,6 @@ interface Worker
     public function healthCheck(): WorkerHealthCheck;
 
     public function getLastNotificationResponse(): NotifyResponse;
+
+    public function halt(): void;
 }

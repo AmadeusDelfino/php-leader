@@ -6,6 +6,7 @@ namespace ADelf\LeaderServer;
 
 use ADelf\LeaderServer\Configuration\AppConfiguration;
 use ADelf\LeaderServer\Contracts\Foundation\Provider;
+use ADelf\LeaderServer\Contracts\Workers\WorkersController;
 use ADelf\LeaderServer\Providers\AppProvider;
 use Pimple\Container;
 
@@ -40,12 +41,17 @@ class App implements \ADelf\LeaderServer\Contracts\Foundation\App
         return $this->config()->get('app.version');
     }
 
-    public function terminate(): int
+    public function workersController(): WorkersController
     {
-        // TODO: Implement terminate() method.
+        return $this->container('workersController');
     }
 
-    public function container($key = null): Container
+    public function terminate(): int
+    {
+        $this->workersController()->haltAllWorks();
+    }
+
+    public function container($key = null)
     {
         if($key === null) {
             return $this->container;

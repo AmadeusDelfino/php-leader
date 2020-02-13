@@ -17,7 +17,7 @@ interface App
      */
     public function version(): string;
 
-    public function container($key = null): Container;
+    public function container($key = null);
 
     /**
      * Terminate the application.
