@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3f0731f7-b7a5-4631-bae7-0a9ca85ec00f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="eyazNfJq" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1XlVWbsynQS2XXtzpyYqWA4FGC7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f0731f7-b7a5-4631-bae7-0a9ca85ec00f" name="Default Changelist" comment="" />
+      <created>1581620700297</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581620700297</updated>
+      <workItem from="1581620701794" duration="1160000" />
+      <workItem from="1581621911619" duration="977000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="734" y="145" width="508" height="824" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581622562980">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="734" y="145" width="508" height="824" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581622562980" />
+    <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl" timestamp="1581621783768">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581621783768" />
+    <state x="570" y="585" width="799" height="419" key="NewPhpClassDialog" timestamp="1581622682581">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="570" y="585" width="799" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581622682581" />
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1581620715191">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581620715191" />
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1581621749389">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581621749389" />
+    <state x="718" y="460" width="540" height="193" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1581621648985">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="718" y="460" width="540" height="193" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581621648985" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/contracts/src/Foundation/App.php</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
