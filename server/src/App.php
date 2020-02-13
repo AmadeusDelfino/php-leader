@@ -29,6 +29,18 @@ class App implements \ADelf\LeaderServer\Contracts\Foundation\App
     {
         $this->container = new Container();
         $this->container->register(new AppProvider());
+        $this->registerAppProviders();
+    }
+
+    protected function registerAppProviders(): void
+    {
+        foreach($this->config()->get('providers') as $provider) {
+            if(!class_exists($provider)) {
+                throw new \Exception('Provider not found:' . $provider);
+            }
+
+            $this->container->register(new $provider());
+        }
     }
 
     public function config(): \ADelf\LeaderServer\Contracts\Foundation\AppConfiguration

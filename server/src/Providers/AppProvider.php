@@ -11,7 +11,6 @@ use Pimple\Container;
 
 class AppProvider implements Provider
 {
-
     public function register(Container $container)
     {
         $container['config'] = new AppConfiguration();
