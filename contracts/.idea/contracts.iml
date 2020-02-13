@@ -7,5 +7,6 @@
     <orderEntry type="module" module-name="docker" />
     <orderEntry type="module" module-name="server" />
     <orderEntry type="module" module-name="worker" />
+    <orderEntry type="module" module-name="processor" />
   </component>
 </module>

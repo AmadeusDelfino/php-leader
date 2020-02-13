@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a25b814180b6e5db6f7c60792c5829b",
+    "content-hash": "e5013b154355203ebaa7c56170837044",
     "packages": [
         {
             "name": "amadeusdelfino/laravel-config-standalone",
@@ -896,6 +896,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "7.3.*"
+    },
     "platform-dev": []
 }

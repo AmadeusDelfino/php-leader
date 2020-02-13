@@ -23,7 +23,7 @@ class AppConfiguration implements \ADelf\LeaderServer\Contracts\Foundation\AppCo
         return $this->configBag->get($key, $default);
     }
 
-    public function set($key, $value): self
+    public function set($key, $value): \ADelf\LeaderServer\Contracts\Foundation\AppConfiguration
     {
         $this->configBag->set($key, $value);
 

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/contracts.iml" filepath="$PROJECT_DIR$/.idea/contracts.iml" />
       <module fileurl="file://$PROJECT_DIR$/../docker/.idea/docker.iml" filepath="$PROJECT_DIR$/../docker/.idea/docker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../php-leader/processor/.idea/processor.iml" filepath="$PROJECT_DIR$/../../php-leader/processor/.idea/processor.iml" />
       <module fileurl="file://$PROJECT_DIR$/../server/.idea/server.iml" filepath="$PROJECT_DIR$/../server/.idea/server.iml" />
       <module fileurl="file://$PROJECT_DIR$/../worker/.idea/worker.iml" filepath="$PROJECT_DIR$/../worker/.idea/worker.iml" />
     </modules>

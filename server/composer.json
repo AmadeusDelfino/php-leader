@@ -4,12 +4,15 @@
   "license": "MIT",
   "require": {
     "pimple/pimple": "^3.2",
-    "amadeusdelfino/laravel-config-standalone": "^1.2"
+    "amadeusdelfino/laravel-config-standalone": "^1.2",
+    "php": "7.3.*"
   },
   "autoload": {
     "psr-4": {
       "ADelf\\LeaderServer\\": "src/",
-      "ADelf\\LeaderServer\\Contracts\\": "contracts/src/"
+      "ADelf\\LeaderServer\\Contracts\\": "contracts/src/",
+      "ADelf\\Processor\\": "processor/src/"
+
     }
   }
 }

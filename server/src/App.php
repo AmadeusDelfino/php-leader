@@ -6,6 +6,7 @@ namespace ADelf\LeaderServer;
 
 use ADelf\LeaderServer\Configuration\AppConfiguration;
 use ADelf\LeaderServer\Contracts\Foundation\Provider;
+use ADelf\LeaderServer\Providers\AppProvider;
 use Pimple\Container;
 
 class App implements \ADelf\LeaderServer\Contracts\Foundation\App
@@ -26,7 +27,7 @@ class App implements \ADelf\LeaderServer\Contracts\Foundation\App
     protected function bootApp(): void
     {
         $this->container = new Container();
-        $this->container['config'] = new AppConfiguration();
+        $this->container->register(new AppProvider());
     }
 
     public function config(): \ADelf\LeaderServer\Contracts\Foundation\AppConfiguration

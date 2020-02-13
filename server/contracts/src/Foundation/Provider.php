@@ -4,7 +4,8 @@
 namespace ADelf\LeaderServer\Contracts\Foundation;
 
 
-interface Provider
+use Pimple\ServiceProviderInterface;
+
+interface Provider extends ServiceProviderInterface
 {
-    public function register();
 }
