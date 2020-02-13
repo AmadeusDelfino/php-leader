@@ -2,7 +2,9 @@
   "name": "adelf/leader-server",
   "type": "project",
   "license": "MIT",
-  "require": {},
+  "require": {
+    "pimple/pimple": "^3.2"
+  },
   "autoload": {
     "psr-4": {
       "ADelf\\LeaderServer\\": "src/",
