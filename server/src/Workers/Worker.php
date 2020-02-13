@@ -7,6 +7,7 @@ namespace ADelf\LeaderServer\Workers;
 use ADelf\LeaderServer\Contracts\Workers\NotifyMessage;
 use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\WorkerHealthCheck;
+use ADelf\LeaderServer\Services\WorkerNotificationService;
 
 class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
 {
@@ -44,7 +45,7 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
 
     public function notify(NotifyMessage $message): NotifyResponse
     {
-        // TODO: Implement notify() method.
+        return (new WorkerNotificationService())->notifyWorker($this, $message);
     }
 
     public function healthCheck(): WorkerHealthCheck

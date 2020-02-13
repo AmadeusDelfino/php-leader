@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/src/Workers/Worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Services/WorkerNotificationService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/WorkerNotify/WorkerNotifyResponse.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Workers/Worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Workers/Worker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Workers/NotifyResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Workers/NotifyResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Workers/Worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Workers/Worker.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,7 @@
       <workItem from="1581625371899" duration="516000" />
       <workItem from="1581625901297" duration="152000" />
       <workItem from="1581626198341" duration="25000" />
-      <workItem from="1581626297575" duration="4488000" />
+      <workItem from="1581626297575" duration="4931000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -117,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581630542942</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Classe concreta de work">
+      <created>1581630821181</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1581630821181</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,17 +140,18 @@
     <MESSAGE value="Interfaces principais para lidar com workers; Criado app provider; Adicionado arquivo env" />
     <MESSAGE value="Ação de broadcast" />
     <MESSAGE value="Adicionado método para pegar a última resposta de notificação de um worker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionado método para pegar a última resposta de notificação de um worker" />
+    <MESSAGE value="Classe concreta de work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Classe concreta de work" />
   </component>
   <component name="WindowStateProjectService">
     <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581627330184">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581627330184" />
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581630542891">
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581630821095">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581630542891" />
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581630821095" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581624136678">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -150,14 +160,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581628201483" />
-    <state x="683" y="608" width="767" height="412" key="NewPhpClassDialog" timestamp="1581630556549">
+    <state x="683" y="608" width="767" height="412" key="NewPhpClassDialog" timestamp="1581630924882">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="683" y="608" width="767" height="412" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581630556549" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581630543431">
+    <state x="683" y="608" width="767" height="412" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581630924882" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581630821887">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581630543431" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581630821887" />
     <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1581624187466">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

@@ -12,5 +12,5 @@ interface NotifyResponse
 
     public function getTotalTime(): int;
 
-    public function isSuccess();
+    public function isSuccess(): bool ;
 }
