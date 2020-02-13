@@ -24,7 +24,7 @@ RUN pecl install mongodb \
     && echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongo.ini
 
-WORKDIR /var/www/html/
+WORKDIR /var/www/
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer global require friendsofphp/php-cs-fixer \
