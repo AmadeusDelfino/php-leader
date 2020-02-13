@@ -5,8 +5,9 @@ namespace ADelf\LeaderServer\Configuration;
 
 
 use Adelf\Config\Config;
+use ADelf\LeaderServer\Contracts\Foundation\AppConfiguration as IAppConfiguration;
 
-class AppConfiguration implements \ADelf\LeaderServer\Contracts\Foundation\AppConfiguration
+class AppConfiguration implements IAppConfiguration
 {
     /**
      * @var Config
@@ -23,7 +24,7 @@ class AppConfiguration implements \ADelf\LeaderServer\Contracts\Foundation\AppCo
         return $this->configBag->get($key, $default);
     }
 
-    public function set($key, $value): \ADelf\LeaderServer\Contracts\Foundation\AppConfiguration
+    public function set($key, $value): IAppConfiguration
     {
         $this->configBag->set($key, $value);
 

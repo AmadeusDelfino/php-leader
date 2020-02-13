@@ -3,14 +3,14 @@
 
 namespace ADelf\LeaderServer;
 
-
-use ADelf\LeaderServer\Configuration\AppConfiguration;
+use ADelf\LeaderServer\Contracts\Foundation\App as IApp;
+use ADelf\LeaderServer\Contracts\Foundation\AppConfiguration as IAppConfiguration;
 use ADelf\LeaderServer\Contracts\Foundation\Provider;
 use ADelf\LeaderServer\Contracts\Workers\WorkersController;
 use ADelf\LeaderServer\Providers\AppProvider;
 use Pimple\Container;
 
-class App implements \ADelf\LeaderServer\Contracts\Foundation\App
+class App implements IApp
 {
     PRIVATE CONST VERSION = '0.0.1';
 
@@ -43,7 +43,7 @@ class App implements \ADelf\LeaderServer\Contracts\Foundation\App
         }
     }
 
-    public function config(): \ADelf\LeaderServer\Contracts\Foundation\AppConfiguration
+    public function config(): IAppConfiguration
     {
         return $this->container()['config'];
     }

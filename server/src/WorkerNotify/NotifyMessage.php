@@ -4,7 +4,9 @@
 namespace ADelf\LeaderServer\WorkerNotify;
 
 
-class NotifyMessage implements \ADelf\LeaderServer\Contracts\Workers\NotifyMessage
+use ADelf\LeaderServer\Contracts\Workers\NotifyMessage as INotifyMessage;
+
+class NotifyMessage implements INotifyMessage
 {
     protected $content;
 
@@ -24,7 +26,7 @@ class NotifyMessage implements \ADelf\LeaderServer\Contracts\Workers\NotifyMessa
     /**
      * @inheritDoc
      */
-    public function setContent(array $content): \ADelf\LeaderServer\Contracts\Workers\NotifyMessage
+    public function setContent(array $content): INotifyMessage
     {
         $this->content = $content;
 

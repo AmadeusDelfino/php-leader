@@ -4,10 +4,11 @@
 namespace ADelf\LeaderServer\WorkerNotify;
 
 
+use ADelf\LeaderServer\Contracts\Workers\Broadcast as IBroadcast;
 use ADelf\LeaderServer\Contracts\Workers\NotifyMessage;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
 
-class Broadcast implements \ADelf\LeaderServer\Contracts\Workers\Broadcast
+class Broadcast implements IBroadcast
 {
     protected $message;
     protected $completed = false;
@@ -23,7 +24,7 @@ class Broadcast implements \ADelf\LeaderServer\Contracts\Workers\Broadcast
         return $this->message;
     }
 
-    public function setMessage(NotifyMessage $message): \ADelf\LeaderServer\Contracts\Workers\Broadcast
+    public function setMessage(NotifyMessage $message): IBroadcast
     {
         $this->message = $message;
 
@@ -35,14 +36,14 @@ class Broadcast implements \ADelf\LeaderServer\Contracts\Workers\Broadcast
         return $this->completed;
     }
 
-    public function setCompleted(): \ADelf\LeaderServer\Contracts\Workers\Broadcast
+    public function setCompleted(): IBroadcast
     {
         $this->completed = true;
 
         return $this;
     }
 
-    public function registerFailedBroadcast(Worker $worker): \ADelf\LeaderServer\Contracts\Workers\Broadcast
+    public function registerFailedBroadcast(Worker $worker): IBroadcast
     {
         $this->fails[] = $worker;
 

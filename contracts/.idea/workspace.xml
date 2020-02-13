@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/src/Enums/WorkerActions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/App.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Configuration/AppConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Configuration/AppConfiguration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/WorkerNotify/Broadcast.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/WorkerNotify/Broadcast.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/WorkerNotify/NotifyMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/WorkerNotify/NotifyMessage.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
       <workItem from="1581625371899" duration="516000" />
       <workItem from="1581625901297" duration="152000" />
       <workItem from="1581626198341" duration="25000" />
-      <workItem from="1581626297575" duration="8492000" />
+      <workItem from="1581626297575" duration="8897000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -172,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581634122229</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Worker actions in enum; resync workers action">
+      <created>1581634829690</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1581634829690</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,17 +202,22 @@
     <MESSAGE value="provider via config" />
     <MESSAGE value="Request para worker" />
     <MESSAGE value="Refac app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refac app" />
+    <MESSAGE value="Worker actions in enum; resync workers action" />
+    <option name="LAST_COMMIT_MESSAGE" value="Worker actions in enum; resync workers action" />
   </component>
   <component name="WindowStateProjectService">
     <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581627330184">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581627330184" />
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581634122152">
+    <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1581635163258">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581634122152" />
+    <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581635163258" />
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581634829628">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581634829628" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581624136678">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -220,10 +234,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581632725600" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581634123389">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581634830495">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581634123389" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581634830495" />
     <state x="550" y="234" width="887" height="638" key="find.popup" timestamp="1581632722128">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
