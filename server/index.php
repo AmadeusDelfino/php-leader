@@ -1,23 +1,47 @@
 <?php
 
 use ADelf\LeaderServer\App;
-use ADelf\LeaderServer\Contracts\Workers\WorkersController;
-use ADelf\LeaderServer\WorkerNotify\Broadcast;
-use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
-use ADelf\LeaderServer\Workers\Worker;
 
 require 'vendor/autoload.php';
 
 $app = App::instance();
 $app->start();
-/**
- * @var $workersController WorkersController
- */
-$workersController = $app->container()['workersController'];
-$worker = new Worker('127.0.0.1', 14589);
-$workersController->addWorker($worker);
-$message = new NotifyMessage(['olá' => 'mundo']);
-$broadcast = new Broadcast($message);
-$broadcastResponse = $workersController->broadcast($broadcast);
-$app->notifyLog()->error('Teste');
-//var_dump($app);
+
+$loop = \React\EventLoop\Factory::create();
+$server = new \React\Http\Server(static function (\Psr\Http\Message\ServerRequestInterface $request) use (&$app) {
+    try {
+        if ($request->getMethod() !== 'POST') {
+            return new \React\Http\Response(
+                405,
+                ['Content-Type' => 'text/plain'],
+                'Use method post'
+            );
+        }
+
+
+        $path = $request->getUri()->getPath();
+        if (strcmp($path, '/register') === 0) {
+            $params = $request->getParsedBody();
+            (new \ADelf\LeaderServer\RequestHandlers\RegisterNewWorkerHandler())($params['ip'], $params['port'], $request->getHeaders());
+            return new \React\Http\Response(
+                200,
+                ['Content-Type' => 'text/plain'],
+                json_encode($app->workersController()->getWorkers())
+            );
+        }
+
+        return new \React\Http\Response(
+            200,
+            ['Content-Type' => 'text/plain'],
+            $path
+        );
+    } catch (\Exception $e) {
+        echo $e->getMessage();
+    }
+});
+$socket = new \React\Socket\Server(8080, $loop);
+$server->listen($socket);
+
+echo 'Serve running at port 8080';
+
+$loop->run();

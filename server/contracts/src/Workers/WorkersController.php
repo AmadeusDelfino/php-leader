@@ -15,6 +15,8 @@ interface WorkersController
      */
     public function addWorker(Worker $worker) : self;
 
+    public function getWorkers(): array;
+
     /**
      * Send a broadcast message to all workers registered on the server
      * @param Broadcast $broadcast

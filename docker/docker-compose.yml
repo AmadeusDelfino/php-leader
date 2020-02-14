@@ -1,16 +1,6 @@
 version: '3'
 
 services:
-  nginx:
-    build:
-      context: nginx
-    ports:
-      - 8080:9151
-      - 8081:81
-    volumes:
-      - ../server:/var/www/server
-      - ../worker:/var/www/worker
-
   php:
     build:
       context: php
@@ -18,3 +8,5 @@ services:
       - ../server:/var/www/server
       - ../worker:/var/www/worker
       - ../worker:/app/contracts
+    ports:
+      - 9000:8080

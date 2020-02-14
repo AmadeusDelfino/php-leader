@@ -6,14 +6,17 @@
     "pimple/pimple": "^3.2",
     "amadeusdelfino/laravel-config-standalone": "^1.2",
     "php": "7.3.*",
-    "guzzlehttp/guzzle": "^6.5"
+    "guzzlehttp/guzzle": "^6.5",
+    "react/event-loop": "^1.1",
+    "react/http": "^0.8.6"
   },
   "autoload": {
     "psr-4": {
       "ADelf\\LeaderServer\\": "src/",
       "ADelf\\LeaderServer\\Contracts\\": "contracts/src/",
       "ADelf\\LeaderServer\\WorkerActions\\": "worker_actions/src/",
-      "ADelf\\Processor\\": "processor/src/"
+      "ADelf\\Processor\\": "processor/src/",
+      "ADelf\\LeaderWorker\\": "worker/src/"
     }
   }
 }

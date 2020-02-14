@@ -24,6 +24,11 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
         return $this;
     }
 
+    public function getWorkers(): array
+    {
+        return $this->works;
+    }
+
     /**
      * @inheritDoc
      */
