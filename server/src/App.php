@@ -3,14 +3,17 @@
 
 namespace ADelf\LeaderServer;
 
+use Adelf\Config\Singletonable;
 use ADelf\LeaderServer\Contracts\Foundation\App as IApp;
 use ADelf\LeaderServer\Contracts\Foundation\AppConfiguration as IAppConfiguration;
 use ADelf\LeaderServer\Contracts\Foundation\Provider;
+use ADelf\LeaderServer\Contracts\Notification\RequestLog;
 use ADelf\LeaderServer\Contracts\Workers\WorkersController;
+use ADelf\LeaderServer\Log\NotifyLog;
 use ADelf\LeaderServer\Providers\AppProvider;
 use Pimple\Container;
 
-class App implements IApp
+class App extends Singletonable implements IApp
 {
     PRIVATE CONST VERSION = '0.0.1';
 
@@ -78,5 +81,15 @@ class App implements IApp
     public function registerProvider(Provider $provider)
     {
         $this->container->register($provider);
+    }
+
+    public function requestLog(): RequestLog
+    {
+        return $this->container('requestLog');
+    }
+
+    public function notifyLog(): NotifyLog
+    {
+        return $this->container('notifyLog');
     }
 }

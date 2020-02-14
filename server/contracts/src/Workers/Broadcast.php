@@ -15,4 +15,6 @@ interface Broadcast
     public function setCompleted(): self;
 
     public function registerFailedBroadcast(Worker $worker): self;
+
+    public function failedWorkers(): array;
 }

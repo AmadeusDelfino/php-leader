@@ -6,7 +6,8 @@ namespace ADelf\LeaderServer\Workers;
 
 use ADelf\LeaderServer\Contracts\Workers\Broadcast;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
-use ADelf\LeaderServer\Enums\WorkerActions;
+use ADelf\LeaderServer\Exceptions\NullMessageException;
+use ADelf\LeaderServer\WorkerActions\Enums\Actions;
 use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
 
 class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\WorkersController
@@ -18,7 +19,7 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
      */
     public function addWorker(Worker $worker): \ADelf\LeaderServer\Contracts\Workers\WorkersController
     {
-        $this->works[] = $worker;
+        $this->works[$worker->getIp() . $worker->getPort()] = $worker;
 
         return $this;
     }
@@ -28,8 +29,9 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
      */
     public function broadcast(Broadcast $broadcast): Broadcast
     {
-        #TODO validar mensagem nulla
-        $message = $broadcast->getMessage();
+        if(($message = $broadcast->getMessage()) === null) {
+            throw new NullMessageException();
+        }
 
         foreach($this->works as $work) {
             /**
@@ -47,13 +49,25 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
 
     public function haltAllWorks(): void
     {
-        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(WorkerActions::HALT));
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(Actions::HALT));
         $this->broadcast($broadcast);
     }
 
-    public function resyncWithServer():void
+    public function haltWorker(Worker $worker): void
     {
-        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(WorkerActions::RESYNC_WITH_SERVER));
+        $worker->notify(new NotifyMessage(Actions::HALT));
+        unset($this->works[$this->getWorkerId($worker)]);
+    }
+
+    public function syncWithServer():void
+    {
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(Actions::RESYNC_WITH_SERVER));
         $this->broadcast($broadcast);
+        $this->works = [];
+    }
+
+    public function getWorkerId(Worker $worker): string
+    {
+        return $worker->getIp() . $worker->getPort();
     }
 }

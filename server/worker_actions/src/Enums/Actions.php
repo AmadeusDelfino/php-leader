@@ -1,10 +1,10 @@
 <?php
 
 
-namespace ADelf\LeaderServer\Enums;
+namespace ADelf\LeaderServer\WorkerActions\Enums;
 
 
-class WorkerActions
+final class Actions
 {
     PUBLIC CONST HALT = [
         'halt' => 'now',

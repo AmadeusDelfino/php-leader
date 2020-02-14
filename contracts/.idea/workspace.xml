@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
+    <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="Alias nas interfaces com mesmo nome das classes concretas">
+      <change afterPath="$PROJECT_DIR$/../server/configs/notification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Notification/NotificationLog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Notification/RequestLog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Exceptions/NullMessageException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Exceptions/WorkerNotificationFailedException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Log/NotifyLog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Log/RequestLog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Providers/LogProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Services/WorkerCommunicationService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Services/WorkerNotificationFailedService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/worker_actions/src/Enums/Actions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../server/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/configs/providers.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/configs/providers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Workers/Broadcast.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Workers/Broadcast.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Workers/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Workers/WorkersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/App.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Configuration/AppConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Configuration/AppConfiguration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Enums/WorkerActions.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/WorkerNotify/Broadcast.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/WorkerNotify/Broadcast.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/WorkerNotify/NotifyMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/WorkerNotify/NotifyMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +94,7 @@
       <workItem from="1581625371899" duration="516000" />
       <workItem from="1581625901297" duration="152000" />
       <workItem from="1581626198341" duration="25000" />
-      <workItem from="1581626297575" duration="8897000" />
+      <workItem from="1581626297575" duration="15537000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -181,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581634829690</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Alias nas interfaces com mesmo nome das classes concretas">
+      <created>1581635216568</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1581635216568</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,21 +230,26 @@
     <MESSAGE value="Request para worker" />
     <MESSAGE value="Refac app" />
     <MESSAGE value="Worker actions in enum; resync workers action" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worker actions in enum; resync workers action" />
+    <MESSAGE value="Alias nas interfaces com mesmo nome das classes concretas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alias nas interfaces com mesmo nome das classes concretas" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581627330184">
+    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581698595205">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581627330184" />
-    <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1581635163258">
+    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581698595205" />
+    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581690258910">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581635163258" />
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581634829628">
+    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581690258910" />
+    <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1581689866845">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581634829628" />
+    <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581689866845" />
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581687654012">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581687654012" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581624136678">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -226,18 +258,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581628201483" />
-    <state x="627" y="240" width="767" height="412" key="NewPhpClassDialog" timestamp="1581634295517">
+    <state x="688" y="439" width="783" height="419" key="NewPhpClassDialog" timestamp="1581698609080">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="627" y="240" width="767" height="412" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581634295517" />
-    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1581632725600">
+    <state x="688" y="439" width="783" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581698609079" />
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1581698042793">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581632725600" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581634830495">
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581698042793" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581635222474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581634830495" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581635222474" />
     <state x="550" y="234" width="887" height="638" key="find.popup" timestamp="1581632722128">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

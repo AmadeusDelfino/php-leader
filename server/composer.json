@@ -5,14 +5,15 @@
   "require": {
     "pimple/pimple": "^3.2",
     "amadeusdelfino/laravel-config-standalone": "^1.2",
-    "php": "7.3.*"
+    "php": "7.3.*",
+    "guzzlehttp/guzzle": "^6.5"
   },
   "autoload": {
     "psr-4": {
       "ADelf\\LeaderServer\\": "src/",
       "ADelf\\LeaderServer\\Contracts\\": "contracts/src/",
+      "ADelf\\LeaderServer\\WorkerActions\\": "worker_actions/src/",
       "ADelf\\Processor\\": "processor/src/"
-
     }
   }
 }

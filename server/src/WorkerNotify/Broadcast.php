@@ -49,4 +49,9 @@ class Broadcast implements IBroadcast
 
         return $this;
     }
+
+    public function failedWorkers(): array
+    {
+        return $this->fails;
+    }
 }
