@@ -22,6 +22,7 @@ return array(
     'React\\Dns\\' => array($vendorDir . '/react/dns/src'),
     'React\\Cache\\' => array($vendorDir . '/react/cache/src'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
@@ -33,6 +34,9 @@ return array(
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector'),
+    'Clue\\React\\Utf8\\' => array($vendorDir . '/clue/utf8-react/src'),
+    'Clue\\React\\Term\\' => array($vendorDir . '/clue/term-react/src'),
+    'Clue\\React\\Stdio\\' => array($vendorDir . '/clue/stdio-react/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Adelf\\Config\\' => array($vendorDir . '/amadeusdelfino/laravel-config-standalone/src'),
     'ADelf\\Processor\\' => array($baseDir . '/processor/src'),
@@ -40,4 +44,5 @@ return array(
     'ADelf\\LeaderServer\\WorkerActions\\' => array($baseDir . '/worker_actions/src'),
     'ADelf\\LeaderServer\\Contracts\\' => array($baseDir . '/contracts/src'),
     'ADelf\\LeaderServer\\' => array($baseDir . '/src'),
+    'ADelf\\LeaderEventProcess\\' => array($baseDir . '/eventProcessListener/src'),
 );

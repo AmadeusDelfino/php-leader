@@ -45,6 +45,7 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'PhpOption\\' => 10,
@@ -68,6 +69,9 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
         ),
         'C' => 
         array (
+            'Clue\\React\\Utf8\\' => 16,
+            'Clue\\React\\Term\\' => 16,
+            'Clue\\React\\Stdio\\' => 17,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -78,6 +82,7 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
             'ADelf\\LeaderServer\\WorkerActions\\' => 33,
             'ADelf\\LeaderServer\\Contracts\\' => 29,
             'ADelf\\LeaderServer\\' => 19,
+            'ADelf\\LeaderEventProcess\\' => 25,
         ),
     );
 
@@ -146,6 +151,10 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -190,6 +199,18 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
         ),
+        'Clue\\React\\Utf8\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clue/utf8-react/src',
+        ),
+        'Clue\\React\\Term\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clue/term-react/src',
+        ),
+        'Clue\\React\\Stdio\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clue/stdio-react/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -217,6 +238,10 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
         'ADelf\\LeaderServer\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'ADelf\\LeaderEventProcess\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/eventProcessListener/src',
         ),
     );
 
