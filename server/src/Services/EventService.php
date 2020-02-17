@@ -10,7 +10,7 @@ class EventService
 {
     public function fire(EventFire $eventFire)
     {
-        app()->addEvent($eventFire);
+        eventController()->addEvent($eventFire);
     }
 
     public function execute(EventFire $eventFire)

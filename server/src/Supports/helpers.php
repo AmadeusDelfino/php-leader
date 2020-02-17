@@ -13,3 +13,10 @@ if (!function_exists('app')) {
         return \ADelf\LeaderServer\App::instance();
     }
 }
+
+if (!function_exists('eventController')) {
+    function eventController(): \ADelf\LeaderServer\Contracts\Event\EventController
+    {
+        return app()->container('eventController');
+    }
+}

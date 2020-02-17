@@ -32,7 +32,7 @@ class RouterHandler implements Router
     protected function handleRequest(ServerRequestInterface $request)
     {
         $uri = $request->getUri()->getPath();
-        $routes = app()->config()->get('routes');
+        $routes = app()->config()->get('routes.web');
         $referenceClass = $this->match($routes, $uri);
 
         return $referenceClass($request);

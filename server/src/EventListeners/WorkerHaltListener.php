@@ -11,6 +11,6 @@ class WorkerHaltListener extends Listener
 {
     public function handler(EventFire $eventFire): void
     {
-        echo $eventFire->getIdentifier();
+
     }
 }

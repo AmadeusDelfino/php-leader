@@ -4,7 +4,6 @@
 namespace ADelf\LeaderServer;
 
 use Adelf\Config\Singletonable;
-use ADelf\LeaderServer\Contracts\Event\EventFire;
 use ADelf\LeaderServer\Contracts\Foundation\App as IApp;
 use ADelf\LeaderServer\Contracts\Foundation\AppConfiguration as IAppConfiguration;
 use ADelf\LeaderServer\Contracts\Foundation\Provider;
@@ -24,23 +23,6 @@ class App extends Singletonable implements IApp
     private $container;
 
     protected $events = [];
-
-    public function events(): array
-    {
-        return $this->events;
-    }
-
-    public function addEvent(EventFire $eventFire): IApp
-    {
-        $this->events[] = $eventFire;
-
-        return $this;
-    }
-
-    public function eventPop(): ?EventFire
-    {
-        return array_pop($this->events);
-    }
 
     public function start(): int
     {
