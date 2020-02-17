@@ -16,7 +16,8 @@
       "ADelf\\LeaderServer\\Contracts\\": "contracts/src/",
       "ADelf\\LeaderServer\\WorkerActions\\": "worker_actions/src/",
       "ADelf\\Processor\\": "processor/src/",
-      "ADelf\\LeaderWorker\\": "worker/src/"
+      "ADelf\\LeaderWorker\\": "worker/src/",
+      "ADelf\\LeaderEventProcess\\": "eventProcessListener/src/"
     }
   }
 }

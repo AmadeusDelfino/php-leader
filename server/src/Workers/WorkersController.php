@@ -18,7 +18,7 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
     /**
      * @inheritDoc
      */
-    public function addWorker(Worker $worker): \ADelf\LeaderServer\Contracts\Workers\WorkersController
+    public function addWorker(Worker $worker): Worker
     {
         $this->works[$worker->getIp() . $worker->getPort()] = $worker;
 

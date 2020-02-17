@@ -6,7 +6,7 @@ namespace ADelf\LeaderServer\Supports\Event;
 
 use ADelf\LeaderServer\Contracts\Event\EventFire;
 
-abstract class Fire implements EventFire
+abstract class Fire implements EventFire, \JsonSerializable
 {
     protected $data;
     protected $listeners = [];
@@ -30,5 +30,14 @@ abstract class Fire implements EventFire
     public function getIdentifier(): string
     {
         return $this->identificer;
+    }
+
+    public function jsonSerialize()
+    {
+        return json_encode([
+            'data' => $this->data,
+            'listeners' => $this->listeners,
+            'identifier' => $this->identificer,
+        ]);
     }
 }

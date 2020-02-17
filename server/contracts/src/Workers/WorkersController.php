@@ -13,7 +13,7 @@ interface WorkersController
      * @param Worker $worker
      * @return $this
      */
-    public function addWorker(Worker $worker) : self;
+    public function addWorker(Worker $worker) : Worker;
 
     public function getWorkers(): array;
 

@@ -11,6 +11,13 @@ class RegisterNewWorkerHandler
 {
     public function __invoke($ip, $port, $meta = [])
     {
-        app()->workersController()->addWorker(new Worker($ip, $port, $meta));
+        $worker = new Worker($ip, $port, $meta);
+        app()->workersController()->addWorker($worker);
+
+        return new \React\Http\Response(
+            200,
+            ['Content-Type' => 'text/plain'],
+            json_encode($worker)
+        );
     }
 }

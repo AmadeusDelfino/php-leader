@@ -1,0 +1,11 @@
+{
+    "name": "adelf/leader-worker",
+    "type": "project",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ADelf\\LeaderWorker\\": "src/"
+        }
+    }
+}

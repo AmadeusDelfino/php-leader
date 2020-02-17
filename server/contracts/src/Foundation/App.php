@@ -3,9 +3,7 @@
 
 namespace ADelf\LeaderServer\Contracts\Foundation;
 
-
 use ADelf\LeaderServer\Contracts\Workers\WorkersController;
-use Pimple\Container;
 
 interface App
 {
@@ -36,4 +34,6 @@ interface App
     public function registerProvider(Provider $provider);
 
     public function workersController(): WorkersController;
+
+    public function config(): AppConfiguration;
 }
