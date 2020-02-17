@@ -69,8 +69,8 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
     public function syncWithServer():void
     {
         $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(Actions::RESYNC_WITH_SERVER));
-        $this->broadcast($broadcast);
         $this->works = [];
+        $this->broadcast($broadcast);
     }
 
     public function getWorkerId(Worker $worker): string

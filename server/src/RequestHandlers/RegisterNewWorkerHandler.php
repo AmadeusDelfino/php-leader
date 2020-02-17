@@ -11,7 +11,6 @@ class RegisterNewWorkerHandler
 {
     public function __invoke($ip, $port, $meta = [])
     {
-        $app = App::instance();
-        $app->workersController()->addWorker(new Worker($ip, $port, $meta));
+        app()->workersController()->addWorker(new Worker($ip, $port, $meta));
     }
 }
