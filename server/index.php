@@ -1,8 +1,11 @@
 <?php
 
-use ADelf\LeaderServer\App;
-
 require 'vendor/autoload.php';
+require 'src/Supports/helpers.php';
+
+use ADelf\LeaderServer\App;
+use ADelf\LeaderServer\Services\WorkerPingService;
+
 
 $app = App::instance();
 $app->start();
@@ -17,7 +20,6 @@ $server = new \React\Http\Server(static function (\Psr\Http\Message\ServerReques
                 'Use method post'
             );
         }
-
 
         $path = $request->getUri()->getPath();
         if (strcmp($path, '/register') === 0) {
@@ -43,5 +45,13 @@ $socket = new \React\Socket\Server(8080, $loop);
 $server->listen($socket);
 
 echo 'Serve running at port 8080';
+
+$loop->addPeriodicTimer(1, static function ($timer) {
+    (new \ADelf\LeaderServer\Services\EventService())->fire(new \ADelf\LeaderServer\Events\WorkerHaltEvent(['teste']));
+});
+$loop->addPeriodicTimer($app->config()->get('workers.ping_time'), static function ($timer) {
+    echo 'pinged';
+    (new WorkerPingService())->pingAllWorkers();
+});
 
 $loop->run();

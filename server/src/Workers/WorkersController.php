@@ -6,6 +6,7 @@ namespace ADelf\LeaderServer\Workers;
 
 use ADelf\LeaderServer\Contracts\Workers\Broadcast;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
+use ADelf\LeaderServer\Events\WorkerHaltEvent;
 use ADelf\LeaderServer\Exceptions\NullMessageException;
 use ADelf\LeaderServer\WorkerActions\Enums\Actions;
 use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
@@ -62,6 +63,7 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
     {
         $worker->notify(new NotifyMessage(Actions::HALT));
         unset($this->works[$this->getWorkerId($worker)]);
+        event(new WorkerHaltEvent($worker));
     }
 
     public function syncWithServer():void
@@ -74,5 +76,13 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
     public function getWorkerId(Worker $worker): string
     {
         return $worker->getIp() . $worker->getPort();
+    }
+
+    public function ping(Worker $worker): void
+    {
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(Actions::PING));
+        foreach($this->broadcast($broadcast)->failedWorkers() as $failedWorker) {
+            $this->haltWorker($failedWorker);
+        }
     }
 }

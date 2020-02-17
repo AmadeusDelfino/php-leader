@@ -30,4 +30,6 @@ interface WorkersController
     public function haltWorker(Worker $worker): void;
 
     public function syncWithServer():void;
+
+    public function ping(Worker $worker): void;
 }

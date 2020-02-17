@@ -2,23 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="Add log support; add actions enum in a package structure; Null message exception; log provider; add guzzle; worker notification service; worker notification failed service; halt specific worker;">
-      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/RegisterNewWorkerHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/configs/workers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Event/EventFire.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Event/EventListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/EventListeners/WorkerHaltListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Events/WorkerHaltEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Services/EventService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Services/WorkerPingService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Supports/Event/Fire.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Supports/Event/Listener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/Supports/helpers.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../worker/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../worker/composer.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../worker/index.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../worker/src/RequestHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker/nginx/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/nginx/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../server/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/contracts/src/Workers/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Workers/WorkersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/worker_actions/src/Enums/Actions.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/worker_actions/src/Enums/Actions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../worker/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../worker/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../worker/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../worker/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../worker/.idea/worker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../worker/.idea/worker.iml" afterDir="false" />
@@ -58,6 +60,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -90,7 +93,8 @@
       <workItem from="1581625371899" duration="516000" />
       <workItem from="1581625901297" duration="152000" />
       <workItem from="1581626198341" duration="25000" />
-      <workItem from="1581626297575" duration="22478000" />
+      <workItem from="1581626297575" duration="27167000" />
+      <workItem from="1581949489809" duration="3247000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -211,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581699404325</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add reactPHP; Request handler stated;">
+      <created>1581715452550</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1581715452550</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,13 +246,14 @@
     <MESSAGE value="Worker actions in enum; resync workers action" />
     <MESSAGE value="Alias nas interfaces com mesmo nome das classes concretas" />
     <MESSAGE value="Add log support; add actions enum in a package structure; Null message exception; log provider; add guzzle; worker notification service; worker notification failed service; halt specific worker;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add log support; add actions enum in a package structure; Null message exception; log provider; add guzzle; worker notification service; worker notification failed service; halt specific worker;" />
+    <MESSAGE value="Add reactPHP; Request handler stated;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add reactPHP; Request handler stated;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581698595205">
+    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581960162670">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581698595205" />
+    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581960162670" />
     <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581690258910">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -250,10 +262,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581689866845" />
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581699773959">
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1581715452464">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581699773959" />
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581715452464" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -262,29 +274,48 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581628201483" />
-    <state x="688" y="439" width="783" height="419" key="NewPhpClassDialog" timestamp="1581715267581">
+    <state x="688" y="439" width="783" height="419" key="NewPhpClassDialog" timestamp="1581960281109">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="688" y="439" width="783" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581715267581" />
-    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1581699747563">
+    <state x="688" y="439" width="783" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581960281109" />
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1581961495173">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581699747563" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581699405988">
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581961495173" />
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1581957966756">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581699405988" />
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581715453746">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581715453746" />
+    <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581959815042" />
     <state x="550" y="234" width="887" height="638" key="find.popup" timestamp="1581632722128">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="550" y="234" width="887" height="638" key="find.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581632722128" />
-    <state x="657" y="252" key="run.anything.popup" timestamp="1581632519665">
+    <state x="657" y="252" width="672" height="677" key="run.anything.popup" timestamp="1581960381643">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="252" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581632519665" />
+    <state x="657" y="252" width="672" height="677" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581960381643" />
     <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1581714905448">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581714905448" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../server/contracts/src/Workers/WorkersController.php</url>
+          <line>33</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -13,4 +13,8 @@ final class Actions
     PUBLIC CONST RESYNC_WITH_SERVER = [
         'resync' => 'now',
     ];
+
+    PUBLIC CONST PING = [
+        'ping' => 'now',
+    ];
 }
