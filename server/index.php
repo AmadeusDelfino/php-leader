@@ -4,11 +4,8 @@ require 'vendor/autoload.php';
 require 'src/Supports/helpers.php';
 
 use ADelf\LeaderServer\App;
-use ADelf\LeaderServer\Contracts\Event\EventFire;
-use ADelf\LeaderServer\Events\WorkerHaltEvent;
 use ADelf\LeaderServer\Router\ConsoleRouterHandler;
 use ADelf\LeaderServer\Router\RouterHandler;
-use ADelf\LeaderServer\Services\EventService;
 use ADelf\LeaderServer\Services\WorkerPingService;
 use Clue\React\Stdio\Stdio;
 use Psr\Http\Message\ServerRequestInterface;
@@ -34,14 +31,6 @@ $server->listen($socket);
 
 echo 'Server running at port ' . $port;
 
-//$loop->addPeriodicTimer(0.1, static function ($timer) {
-//    if(($event = app()->eventPop()) !== null) {
-//        (new EventService())->execute($event);
-//    }
-//});
-$loop->addPeriodicTimer(3, static function($timer) {
-    (new EventService())->fire(new WorkerHaltEvent(['teste']));
-});
 $loop->addPeriodicTimer($app->config()->get('workers.ping_time'), static function ($timer) {
     (new WorkerPingService())->pingAllWorkers();
 });
