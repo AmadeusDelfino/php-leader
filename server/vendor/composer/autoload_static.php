@@ -48,6 +48,7 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'Psr\\Cache\\' => 10,
             'PhpOption\\' => 10,
         ),
         'I' => 
@@ -162,6 +163,10 @@ class ComposerStaticInit6bb95f529d8da4322307de2bf6f0808c
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'PhpOption\\' => 
         array (

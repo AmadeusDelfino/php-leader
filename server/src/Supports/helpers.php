@@ -1,5 +1,12 @@
 <?php
 
+if (!function_exists('app')) {
+    function app(): \ADelf\LeaderServer\Contracts\Foundation\App
+    {
+        return \ADelf\LeaderServer\App::instance();
+    }
+}
+
 if (!function_exists('event')) {
     function event(\ADelf\LeaderServer\Contracts\Event\EventFire $event)
     {
@@ -7,10 +14,10 @@ if (!function_exists('event')) {
     }
 }
 
-if (!function_exists('app')) {
-    function app(): \ADelf\LeaderServer\Contracts\Foundation\App
+if (!function_exists('config')) {
+    function config(): \ADelf\LeaderServer\Contracts\Foundation\AppConfiguration
     {
-        return \ADelf\LeaderServer\App::instance();
+        return app()->config();
     }
 }
 

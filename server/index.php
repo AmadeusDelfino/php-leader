@@ -5,7 +5,7 @@ require 'src/Supports/helpers.php';
 
 use ADelf\LeaderServer\App;
 use ADelf\LeaderServer\Router\ConsoleRouterHandler;
-use ADelf\LeaderServer\Router\RouterHandler;
+use ADelf\LeaderServer\Router\WebRouterHandler;
 use ADelf\LeaderServer\Services\WorkerPingService;
 use Clue\React\Stdio\Stdio;
 use Psr\Http\Message\ServerRequestInterface;
@@ -20,9 +20,9 @@ $loop = Factory::create();
 
 $server = new Server(static function (ServerRequestInterface $request) use (&$app) {
     try {
-        return (new RouterHandler())->handler($request);
+        return \app()->container('webRouter')->handler($request);
     } catch (\Exception $e) {
-        echo $e->getMessage();
+        echo 'Error: ' . $e->getMessage();
     }
 });
 $port = app()->config()->get('app.port');
@@ -38,7 +38,11 @@ $loop->addPeriodicTimer($app->config()->get('workers.ping_time'), static functio
 $stdio = new Stdio($loop);
 $stdio->setPrompt('Input > ');
 $stdio->on('data', static function ($line) use($stdio) {
-    (new ConsoleRouterHandler())->handler($line, $stdio);
+    try {
+        \app()->container('consoleRouter')->handler($line, $stdio);
+    } catch (\Exception $e) {
+        $stdio->write('Error: ' . $e->getMessage());
+    }
 });
 
 $loop->run();

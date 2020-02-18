@@ -9,7 +9,7 @@ use ADelf\LeaderServer\Exceptions\RouteNotFoundException;
 use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Response;
 
-class RouterHandler implements Router
+class WebRouterHandler implements Router
 {
     public function handler(ServerRequestInterface $request)
     {
