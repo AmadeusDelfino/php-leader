@@ -327,10 +327,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="738" y="161" width="501" height="791" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581965421822" />
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582064710920">
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582065875313">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582064710920" />
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065875313" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -351,10 +351,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582064712613">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582065877428">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582064712613" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065877428" />
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -367,10 +367,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="252" width="672" height="677" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582061949976" />
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582065782444">
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582065954469">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065782444" />
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065954469" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

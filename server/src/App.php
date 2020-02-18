@@ -15,8 +15,6 @@ use Pimple\Container;
 
 class App extends Singletonable implements IApp
 {
-    PRIVATE CONST VERSION = '0.0.1';
-
     /**
      * @var Container
      */
