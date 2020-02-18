@@ -76,5 +76,14 @@ class ArrayCacheDriver implements CacheDriver
     public function commit(): bool
     {
         $this->items = array_merge($this->items, $this->queue);
+
+        return true;
+    }
+
+    public function rollback(): bool
+    {
+        $this->queue = [];
+
+        return true;
     }
 }

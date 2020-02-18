@@ -99,4 +99,12 @@ interface CacheDriver
      *   True if all not-yet-saved items were successfully saved or there were none. False otherwise.
      */
     public function commit(): bool;
+
+    /**
+     * Delete any deferred cache items.
+     *
+     * @return bool
+     *   True if all not-yet-saved items were successfully saved or there were none. False otherwise.
+     */
+    public function rollback(): bool;
 }

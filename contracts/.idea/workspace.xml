@@ -1,31 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="Clean index.php">
-      <change afterPath="$PROJECT_DIR$/../server/configs/cache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheDriver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheItem.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Cache/CacheController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Cache/CacheFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Cache/Drivers/ArrayCacheDriver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Cache/Factories/ArrayFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Cache/Item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Exceptions/CacheDriverNotFoundException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Providers/CacheProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/Providers/RouterProvider.php" afterDir="false" />
+    <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../server/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/configs/providers.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/configs/providers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/eventProcessListener/src/Process.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Router/RouterHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Router/WebRouterHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Supports/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Supports/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheDriver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Cache/Drivers/ArrayCacheDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Cache/Drivers/ArrayCacheDriver.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +82,7 @@
       <workItem from="1581949489809" duration="8241000" />
       <workItem from="1581975902178" duration="8385000" />
       <workItem from="1582060052554" duration="2221000" />
-      <workItem from="1582062854065" duration="1338000" />
+      <workItem from="1582062854065" duration="1831000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -273,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581980288894</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add cache support; Add array in memory cache support">
+      <created>1582064209540</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1582064209540</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +290,8 @@
     <MESSAGE value="Add event provider; add event controller; add console router;" />
     <MESSAGE value="Add app in env" />
     <MESSAGE value="Clean index.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean index.php" />
+    <MESSAGE value="Add cache support; Add array in memory cache support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add cache support; Add array in memory cache support" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582063440639">
@@ -323,10 +310,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="738" y="161" width="501" height="791" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581965421822" />
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582054576570">
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582064209406">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582054576570" />
+    <state x="556" y="62" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582064209406" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -347,10 +334,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1581980289843">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582064211709">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581980289843" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582064211709" />
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
