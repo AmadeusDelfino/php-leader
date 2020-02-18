@@ -21,9 +21,6 @@ interface CacheDriver
      *
      * @return CacheItem
      *   The corresponding Cache Item.
-     * @throws InvalidArgumentException
-     *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
-     *   MUST be thrown.
      *
      */
     public function getItem($key): CacheItem;
@@ -63,10 +60,6 @@ interface CacheDriver
      *
      * @return bool
      *   True if the item was successfully removed. False if there was an error.
-     * @throws InvalidArgumentException
-     *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
-     *   MUST be thrown.
-     *
      */
     public function deleteItem(string $key): bool;
 
@@ -107,4 +100,11 @@ interface CacheDriver
      *   True if all not-yet-saved items were successfully saved or there were none. False otherwise.
      */
     public function rollback(): bool;
+
+    /**
+     * Count total of items in cache.
+     *
+     * @return int
+     */
+    public function count(): int;
 }

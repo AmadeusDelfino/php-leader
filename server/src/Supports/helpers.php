@@ -27,3 +27,10 @@ if (!function_exists('eventController')) {
         return app()->container('eventController');
     }
 }
+
+if (!function_exists('cache')) {
+    function cache(): \ADelf\LeaderServer\Contracts\Cache\CacheInterface
+    {
+        return app()->container('cacheController');
+    }
+}

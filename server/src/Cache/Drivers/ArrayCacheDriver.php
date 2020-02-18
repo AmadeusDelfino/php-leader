@@ -86,4 +86,9 @@ class ArrayCacheDriver implements CacheDriver
 
         return true;
     }
+
+    public function count(): int
+    {
+        return count($this->items);
+    }
 }

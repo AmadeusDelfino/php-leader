@@ -14,6 +14,14 @@ class Item implements CacheItem
     protected $value;
     protected $hit = false;
     protected $expiresAt;
+
+    public function __construct($key, $value, $expiresAt = null)
+    {
+        $this->key = $key;
+        $this->value = $value;
+        $this->expiresAt($expiresAt);
+    }
+
     /**
      * @inheritDoc
      */

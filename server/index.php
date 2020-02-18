@@ -33,6 +33,7 @@ echo 'Server running at port ' . $port;
 
 $loop->addPeriodicTimer($app->config()->get('workers.ping_time'), static function ($timer) {
     (new WorkerPingService())->pingAllWorkers();
+    (new \ADelf\LeaderServer\Services\CacheService())->set(rand(1, 999), 'teste');
 });
 
 $stdio = new Stdio($loop);
