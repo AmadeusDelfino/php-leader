@@ -27,6 +27,7 @@ class ConsoleRouterHandler implements ConsoleRouter
 
     protected function splitParams($command): array
     {
+        $command = trim($command);
         $split = explode(' ', $command);
 
         return [

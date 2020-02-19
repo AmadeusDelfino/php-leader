@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandParameter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Workers/WorkersListHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Cache/FlushCacheHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/bootstrap/stdio.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/bootstrap/stdio.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/configs/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/configs/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Router/ConsoleRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Router/ConsoleRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheDriver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Cache/Drivers/ArrayCacheDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Cache/Drivers/ArrayCacheDriver.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Cache/CountCacheHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Cache/CountCacheHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandParameter.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandArgument.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/CountEventsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/CountEventsHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/FlushEventsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/FlushEventsHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Workers/WorkersListHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Workers/WorkersListHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/Router/ConsoleRouterHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Router/ConsoleRouterHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../server/src/RequestHandlers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Cache" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,13 +56,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Cache" />
       <recent name="$PROJECT_DIR$/../server/src/RequestHandlers" />
       <recent name="$PROJECT_DIR$/../server/contracts/src/Foundation" />
       <recent name="$PROJECT_DIR$/../server/src/Providers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -94,7 +96,8 @@
       <workItem from="1581949489809" duration="8241000" />
       <workItem from="1581975902178" duration="8385000" />
       <workItem from="1582060052554" duration="2221000" />
-      <workItem from="1582062854065" duration="8315000" />
+      <workItem from="1582062854065" duration="9000000" />
+      <workItem from="1582133026824" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -299,14 +302,20 @@
       <option name="project" value="LOCAL" />
       <updated>1582067700110</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add autocomplete in console; add help command; add console parameter class; add command class base;">
+      <created>1582122367284</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1582122367284</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Interfaces principais para lidar com workers; Criado app provider; Adicionado arquivo env" />
     <MESSAGE value="Ação de broadcast" />
     <MESSAGE value="Adicionado método para pegar a última resposta de notificação de um worker" />
     <MESSAGE value="Classe concreta de work" />
@@ -331,17 +340,18 @@
     <MESSAGE value="Add cache service; add cache count handler (console)" />
     <MESSAGE value="Remove unused const in app class" />
     <MESSAGE value="clean index.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean index.php" />
+    <MESSAGE value="Add autocomplete in console; add help command; add console parameter class; add command class base;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add autocomplete in console; add help command; add console parameter class; add command class base;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582063440639">
+    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582134051712">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582063440639" />
-    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582061789589">
+    <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582134051712" />
+    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582133327054">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582061789589" />
+    <state x="726" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582133327054" />
     <state x="776" y="482" width="424" height="149" key="#com.jetbrains.php.lang.intentions.PhpImportClassDialog#" timestamp="1581966862647">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -350,10 +360,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="738" y="161" width="501" height="791" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581965421822" />
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582067700047">
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582122367191">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582067700047" />
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582122367191" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -374,10 +384,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582067703177">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582122367927">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582067703177" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582122367927" />
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -390,10 +400,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="252" width="672" height="677" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582061949976" />
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582122061812">
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582133803308">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582122061812" />
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582133803308" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

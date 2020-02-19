@@ -10,7 +10,7 @@ use Clue\React\Stdio\Stdio;
 class HelpHandler extends Command
 {
     protected $description = 'list all available commands';
-    protected $params = [
+    protected $args = [
         'teste' => [
             'required' => true,
             'description' => 'bla bla bla'
@@ -22,7 +22,22 @@ class HelpHandler extends Command
         'teste_2',
     ];
 
-    public function handler(array $params, Stdio $stdio): void
+    protected function buildParamsString(Command $handler): string
+    {
+        $stringParams = '';
+        foreach($handler->parameters() as $parameter) {
+            /**
+             * @var $parameter CommandArgument
+             */
+            $required = $parameter->required() ? 'required' : 'not required';
+            $stringParams .= '--' . $parameter->name() . '=' . '<' . '(' . $parameter->description() . ' | ' . $required .')' . '> ';
+
+        }
+
+        return $stringParams;
+    }
+
+    protected function execute(Stdio $stdio): void
     {
         $stdio->write('Commands: ' . PHP_EOL);
         foreach (config()->get('routes.console') as $command => $class) {
@@ -37,20 +52,5 @@ class HelpHandler extends Command
             $stdio->write($command . ' ' .$this->buildParamsString($handler) . PHP_EOL . $handler->description());
             $stdio->write(PHP_EOL . '-----------------------------------------------' . PHP_EOL);
         }
-    }
-
-    protected function buildParamsString(Command $handler): string
-    {
-        $stringParams = '';
-        foreach($handler->parameters() as $parameter) {
-            /**
-             * @var $parameter CommandParameter
-             */
-            $required = $parameter->required() ? 'required' : 'not required';
-            $stringParams .= '--' . $parameter->name() . '=' . '<' . '(' . $parameter->description() . ' | ' . $required .')' . '> ';
-
-        }
-
-        return $stringParams;
     }
 }

@@ -11,7 +11,8 @@ class WorkersListHandler extends Command
 {
     protected $description = 'List all workers available';
 
-    public function handler(array $params, Stdio $stdio): void
+
+    protected function execute(Stdio $stdio): void
     {
         $stdio->write('Workers conectados: ' . PHP_EOL);
         foreach(app()->workersController()->getWorkers() as $worker) {
@@ -21,6 +22,5 @@ class WorkersListHandler extends Command
             $stdio->write('----------------' . PHP_EOL);
             $stdio->write('IP/Port: ' . $worker->getIp() . ':' . $worker->getPort());
         }
-
     }
 }

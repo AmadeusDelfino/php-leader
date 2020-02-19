@@ -10,7 +10,7 @@ class CountEventsHandler extends Command
 {
     protected $description = 'Count os event items';
 
-    public function handler(array $params, Stdio $stdio): void
+    protected function execute(Stdio $stdio): void
     {
         $stdio->write('Total: ' . count(eventController()->events()));
     }

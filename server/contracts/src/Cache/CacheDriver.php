@@ -4,8 +4,6 @@
 namespace ADelf\LeaderServer\Contracts\Cache;
 
 
-use Psr\Cache\CacheItemInterface;
-use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
 
 interface CacheDriver

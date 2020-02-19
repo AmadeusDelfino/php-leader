@@ -10,7 +10,7 @@ class CountCacheHandler extends Command
 {
     protected $description = 'Count of cache items';
 
-    public function handler(array $params, Stdio $stdio): void
+    protected function execute(Stdio $stdio): void
     {
         $stdio->write('Total: ' . cache()->cachePool()->count());
     }

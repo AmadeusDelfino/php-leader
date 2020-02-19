@@ -18,7 +18,7 @@ class ArrayCacheDriver implements CacheDriver
      */
     public function getItem($key): CacheItem
     {
-        return $this->items[$key] ?? new Item();
+        return $this->items[$key] ?? new Item(null, null);
     }
 
     /**

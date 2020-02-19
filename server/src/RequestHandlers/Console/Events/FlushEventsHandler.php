@@ -10,7 +10,7 @@ class FlushEventsHandler extends Command
 {
     protected $description = 'Clear all event items';
 
-    public function handler(array $params, Stdio $stdio): void
+    protected function execute(Stdio $stdio): void
     {
         eventController()->flush();
     }
