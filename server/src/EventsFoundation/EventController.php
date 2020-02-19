@@ -22,9 +22,9 @@ class EventController implements \ADelf\LeaderServer\Contracts\Event\EventContro
         return $this;
     }
 
-    public function popEvent(): EventFire
+    public function getAndRemoveEvent(): EventFire
     {
-        return array_pop($this->events);
+        return array_shift($this->events);
     }
 
     public function flush(): void

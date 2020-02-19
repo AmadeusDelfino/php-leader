@@ -10,17 +10,6 @@ use Clue\React\Stdio\Stdio;
 class HelpHandler extends Command
 {
     protected $description = 'list all available commands';
-    protected $args = [
-        'teste' => [
-            'required' => true,
-            'description' => 'bla bla bla'
-        ],
-        'teste_1' => [
-            'required' => false,
-            'description' => 'bla bla bla 2',
-        ],
-        'teste_2',
-    ];
 
     protected function buildParamsString(Command $handler): string
     {

@@ -10,7 +10,7 @@ interface EventController
 
     public function addEvent(EventFire $eventFire): self;
 
-    public function popEvent(): EventFire;
+    public function getAndRemoveEvent(): EventFire;
 
     public function flush(): void;
 }

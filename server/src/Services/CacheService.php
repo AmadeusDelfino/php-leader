@@ -12,12 +12,11 @@ class CacheService
     public function get(string $key, callable $alternative = null, $expiresAt = null)
     {
         $item = cache()->cachePool()->getItem($key);
-        if($item->isHit() || !is_callable($alternative)) {
+        if(!is_callable($alternative) || $item->isHit()) {
             return $item->get();
         }
 
         $value = $alternative();
-
         $item = $this->makeCacheItem($key, $value, $expiresAt);
         cache()
             ->cachePool()

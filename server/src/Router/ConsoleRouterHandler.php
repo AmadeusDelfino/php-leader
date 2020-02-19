@@ -31,8 +31,8 @@ class ConsoleRouterHandler implements ConsoleRouter
         $split = explode(' ', $command);
 
         return [
-            'command' => $split[0],
-            'params' => $this->normalizeParams(count($split) === 1 ? [] : array_slice($split, 1)),
+            'command' => array_shift($split),
+            'params' => $this->normalizeParams($split),
         ];
     }
 

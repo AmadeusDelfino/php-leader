@@ -78,4 +78,15 @@ class CacheTest extends TestBase
 
         $this->assertIsBool(true);
     }
+
+    public function test_alternative_value_from_callback(): void
+    {
+        $cache = new CacheService();
+        $value = $cache->get('foo_alternative_callback', static function () {
+            return 'bar';
+        });
+        $this->assertEquals($value, 'bar');
+        $this->assertEquals($cache->get('foo_alternative_callback'), 'bar');
+
+    }
 }

@@ -65,9 +65,9 @@ abstract class Command implements ConsoleRequest
             $this->paramsClasses[$name] = new CommandArgument(
                 $name,
                 '',
-                $config['required'] ?? false,
+                $config['default'] ?? null,
                 $config['description'] ?? '',
-                $config['default'] ?? null
+                (isset($config['required']) && $config['required'])
             );
         }
     }
