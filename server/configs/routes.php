@@ -11,5 +11,8 @@ return [
 
         // Cache
         'cache:count' => \ADelf\LeaderServer\RequestHandlers\Console\Cache\CountCacheHandler::class,
+
+        // help
+        'help' => \ADelf\LeaderServer\RequestHandlers\Console\HelpHandler::class,
     ]
 ];

@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/bootstrap/http.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/bootstrap/stdio.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandParameter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Workers/WorkersListHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/bootstrap/stdio.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/bootstrap/stdio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/configs/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/configs/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Router/ConsoleRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Router/ConsoleRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Cache/CountCacheHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Cache/CountCacheHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/CountEventsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/CountEventsHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/FlushEventsHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Events/FlushEventsHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Router/ConsoleRouterHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Router/ConsoleRouterHandler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +94,7 @@
       <workItem from="1581949489809" duration="8241000" />
       <workItem from="1581975902178" duration="8385000" />
       <workItem from="1582060052554" duration="2221000" />
-      <workItem from="1582062854065" duration="4024000" />
+      <workItem from="1582062854065" duration="8315000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -285,14 +292,20 @@
       <option name="project" value="LOCAL" />
       <updated>1582065971383</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="clean index.php">
+      <created>1582067700109</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1582067700110</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adicionado suporte a arquivos de configuração; Adicionado suporte a IoC (Pimple)" />
     <MESSAGE value="Interfaces principais para lidar com workers; Criado app provider; Adicionado arquivo env" />
     <MESSAGE value="Ação de broadcast" />
     <MESSAGE value="Adicionado método para pegar a última resposta de notificação de um worker" />
@@ -317,7 +330,8 @@
     <MESSAGE value="Add rollback deferred cache items;" />
     <MESSAGE value="Add cache service; add cache count handler (console)" />
     <MESSAGE value="Remove unused const in app class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unused const in app class" />
+    <MESSAGE value="clean index.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean index.php" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582063440639">
@@ -336,10 +350,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="738" y="161" width="501" height="791" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581965421822" />
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582065971301">
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582067700047">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065971301" />
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582067700047" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -348,10 +362,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581628201483" />
-    <state x="644" y="576" width="839" height="419" key="NewPhpClassDialog" timestamp="1582065616399">
+    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog" timestamp="1582120222938">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="644" y="576" width="839" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065616399" />
+    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582120222938" />
     <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1582067564466">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -360,26 +374,26 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582065973314">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582067703177">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065973314" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582067703177" />
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581959815042" />
-    <state x="550" y="234" width="887" height="638" key="find.popup" timestamp="1581962229488">
+    <state x="550" y="234" width="887" height="638" key="find.popup" timestamp="1582122169720">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="550" y="234" width="887" height="638" key="find.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581962229488" />
+    <state x="550" y="234" width="887" height="638" key="find.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582122169720" />
     <state x="657" y="252" width="672" height="677" key="run.anything.popup" timestamp="1582061949976">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="252" width="672" height="677" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582061949976" />
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582065954469">
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582122061812">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582065954469" />
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582122061812" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
