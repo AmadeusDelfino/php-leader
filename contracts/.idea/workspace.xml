@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../server/worker/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/worker/src/Server.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/worker/src/ServerManifest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/worker/src/Worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/worker_contracts/src/Foundation/Server.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/worker_contracts/src/Foundation/ServerManifest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/worker_contracts/src/Foundation/Worker.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandArgument.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandArgument.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/bootstrap/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/bootstrap/http.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +106,7 @@
       <workItem from="1582060052554" duration="2221000" />
       <workItem from="1582062854065" duration="9000000" />
       <workItem from="1582133026824" duration="14273000" />
+      <workItem from="1582148766475" duration="2227000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -360,14 +367,20 @@
       <option name="project" value="LOCAL" />
       <updated>1582147674026</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Fix command args validation;">
+      <created>1582148795327</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1582148795328</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refac app" />
     <MESSAGE value="Worker actions in enum; resync workers action" />
     <MESSAGE value="Alias nas interfaces com mesmo nome das classes concretas" />
     <MESSAGE value="Add log support; add actions enum in a package structure; Null message exception; log provider; add guzzle; worker notification service; worker notification failed service; halt specific worker;" />
@@ -392,7 +405,8 @@
     <MESSAGE value="Add app config test; add provider test; add worker controller test; add worker request test; add worker test; refac some codes" />
     <MESSAGE value="A lot of cache tests; fix expire date cache item;" />
     <MESSAGE value="Fix arg init; renamed popEvent to getAndRemoveEvent, also change array_pop to array_shift. Well, I need to think in a better name; add more cache tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix arg init; renamed popEvent to getAndRemoveEvent, also change array_pop to array_shift. Well, I need to think in a better name; add more cache tests" />
+    <MESSAGE value="Fix command args validation;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix command args validation;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582140948805">
@@ -411,10 +425,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="738" y="161" width="501" height="791" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581965421822" />
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582147673939">
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582148795254">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582147673939" />
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582148795254" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -423,22 +437,22 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582142937450" />
-    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog" timestamp="1582143811162">
+    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog" timestamp="1582149669760">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582143811162" />
-    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1582138010299">
+    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582149669760" />
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1582148931512">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582138010299" />
+    <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582148931512" />
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1581957966756">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582147675209">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582148796317">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582147675209" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582148796317" />
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
