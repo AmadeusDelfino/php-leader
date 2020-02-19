@@ -9,11 +9,11 @@ use ADelf\LeaderServer\Contracts\Cache\CacheItem;
 
 class CacheService
 {
-    public function get(string $key, callable $alternative, $expiresAt = null): CacheItem
+    public function get(string $key, callable $alternative = null, $expiresAt = null)
     {
         $item = cache()->cachePool()->getItem($key);
         if($item->isHit() || !is_callable($alternative)) {
-            return $item;
+            return $item->get();
         }
 
         $value = $alternative();
@@ -23,7 +23,7 @@ class CacheService
             ->cachePool()
             ->save($item);
 
-        return $item;
+        return $item->get();
     }
 
     public function set(string $key, $value, $expiresAt = null): bool
@@ -38,11 +38,16 @@ class CacheService
         return cache()->cachePool()->deleteItem($key);
     }
 
-    public function setDeferred($key, $value, $expiresAt): bool
+    public function startTransaction(): string
+    {
+        return cache()->cachePool()->transaction();
+    }
+
+    public function setDeferred($transactionKey, $key, $value, $expiresAt = null): bool
     {
         return cache()
             ->cachePool()
-            ->saveDeferred($this->makeCacheItem($key, $value, $expiresAt));
+            ->saveDeferred($transactionKey, $this->makeCacheItem($key, $value, $expiresAt));
     }
 
     public function flush(): bool
@@ -52,23 +57,27 @@ class CacheService
             ->clear();
     }
 
-    public function commit(): bool
+    public function commit(string $transactionKey): bool
     {
         return cache()
             ->cachePool()
-            ->commit();
+            ->commit($transactionKey);
     }
 
-    public function rollback(): bool
+    public function rollback($transactionKey): bool
     {
         return cache()
             ->cachePool()
-            ->rollback();
+            ->rollback($transactionKey);
     }
 
     protected function makeCacheItem($key, $value, $expiresAt): CacheItem
     {
         return new Item($key, $value, $expiresAt);
+    }
 
+    public function count(): int
+    {
+        return cache()->cachePool()->count();
     }
 }

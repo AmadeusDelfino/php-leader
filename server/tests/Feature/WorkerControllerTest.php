@@ -4,7 +4,6 @@
 namespace Feature;
 
 
-use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Exceptions\NullMessageException;
 use ADelf\LeaderServer\WorkerNotify\Broadcast;
 use ADelf\LeaderServer\WorkerNotify\NotifyMessage;

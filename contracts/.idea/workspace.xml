@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/tests/Feature/AppConfigurationTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/tests/Feature/ProviderTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/tests/Feature/WorkerControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/tests/Feature/WorkerRequestTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/tests/Feature/WorkerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/tests/Feature/CacheTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Workers/Worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Workers/Worker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Workers/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Workers/WorkersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/WorkerNotify/WorkerNotifyResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/WorkerNotify/WorkerNotifyResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Workers/WorkRequestResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Workers/WorkRequestResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Workers/Worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Workers/Worker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Workers/WorkersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/tests/Feature/AppTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/tests/Feature/AppTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Cache/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Cache/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/Services/CacheService.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Services/CacheService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/tests/Feature/WorkerControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/tests/Feature/WorkerControllerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +100,7 @@
       <workItem from="1581975902178" duration="8385000" />
       <workItem from="1582060052554" duration="2221000" />
       <workItem from="1582062854065" duration="9000000" />
-      <workItem from="1582133026824" duration="9710000" />
+      <workItem from="1582133026824" duration="12001000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -348,14 +340,20 @@
       <option name="project" value="LOCAL" />
       <updated>1582139747858</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Add app config test; add provider test; add worker controller test; add worker request test; add worker test; refac some codes">
+      <created>1582143687311</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1582143687311</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Facilitador para acessar WorkersController; Ferramenta para desligar todos os works" />
     <MESSAGE value="provider via config" />
     <MESSAGE value="Request para worker" />
     <MESSAGE value="Refac app" />
@@ -380,7 +378,8 @@
     <MESSAGE value="Add key to cache transaction; add phpunit" />
     <MESSAGE value="Fix array cache driver; add composer config; add app base support" />
     <MESSAGE value="More app tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="More app tests" />
+    <MESSAGE value="Add app config test; add provider test; add worker controller test; add worker request test; add worker test; refac some codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add app config test; add provider test; add worker controller test; add worker request test; add worker test; refac some codes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582140948805">
@@ -399,10 +398,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="738" y="161" width="501" height="791" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581965421822" />
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582139747800">
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582143687243">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582139747800" />
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582143687243" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -411,10 +410,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582142937450" />
-    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog" timestamp="1582143647085">
+    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog" timestamp="1582143811162">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582143647085" />
+    <state x="644" y="576" width="855" height="419" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582143811162" />
     <state x="789" y="475" width="399" height="164" key="NewPhpFileDialog" timestamp="1582138010299">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -423,10 +422,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582139749524">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582143689125">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582139749524" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582143689125" />
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -439,9 +438,9 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="252" width="672" height="677" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582135970512" />
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582143504464">
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582145284332">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582143504464" />
+    <state x="656" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582145284332" />
   </component>
 </project>

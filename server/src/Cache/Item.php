@@ -19,7 +19,7 @@ class Item implements CacheItem
     {
         $this->key = $key;
         $this->value = $value;
-        $this->expiresAt($expiresAt);
+        $this->expiresAfter($expiresAt);
     }
 
     /**
@@ -77,7 +77,7 @@ class Item implements CacheItem
         }
 
         if(is_int($time)) {
-            $this->expiresAt = (new \DateTime())->add((new DateInterval('P'.$time.'S')));
+            $this->expiresAt = (new \DateTime())->add((new DateInterval('PT'.$time.'S')));
         }
 
         if($time === null) {
