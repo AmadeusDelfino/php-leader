@@ -32,7 +32,11 @@ interface Worker
 
     public function healthCheck(): WorkerHealthCheck;
 
-    public function getLastNotificationResponse(): NotifyResponse;
+    public function getLastNotificationResponse(): ?NotifyResponse;
+
+    public function getLastRequestResponse(): ?WorkerRequestResponse;
 
     public function halt(): void;
+
+    public function getId(): string;
 }

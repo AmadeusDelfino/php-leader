@@ -10,8 +10,8 @@ use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
 
 class WorkRequestResponse implements WorkerRequestResponse
 {
-    protected $code;
-    protected $rawResponse;
+    protected $code = 0;
+    protected $rawResponse = '';
     protected $worker;
     protected $message;
 

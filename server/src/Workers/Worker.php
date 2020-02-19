@@ -12,16 +12,19 @@ use ADelf\LeaderServer\Services\WorkerNotificationService;
 
 class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
 {
+    protected $id;
     protected $ip;
     protected $port;
     protected $meta;
     protected $lastNotificationResponse;
+    protected $lastRequestResponse;
 
     public function __construct(string $ip, int $port, array $meta = [])
     {
         $this->ip = $ip;
         $this->port = $port;
         $this->meta = $meta;
+        $this->id = $ip . $port;
     }
 
     public function getIp(): string
@@ -39,9 +42,14 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
         return $this->meta;
     }
 
-    public function getLastNotificationResponse(): NotifyResponse
+    public function getLastNotificationResponse(): ?NotifyResponse
     {
         return $this->lastNotificationResponse;
+    }
+
+    public function getLastRequestResponse(): ?WorkerRequestResponse
+    {
+        return $this->lastRequestResponse;
     }
 
     public function notify(NotifyMessage $message): NotifyResponse
@@ -65,6 +73,12 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
      */
     public function request(NotifyMessage $message): WorkerRequestResponse
     {
-        return (new WorkerNotificationService())->requestToWorker($this, $message);
+        $this->lastRequestResponse = (new WorkerNotificationService())->requestToWorker($this, $message);
+        return $this->lastRequestResponse;
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
     }
 }

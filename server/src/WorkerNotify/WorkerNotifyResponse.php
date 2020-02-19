@@ -8,8 +8,8 @@ use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 
 class WorkerNotifyResponse implements NotifyResponse
 {
-    protected $startTime;
-    protected $endTime;
+    protected $startTime = 0;
+    protected $endTime = 0;
     protected $success = false;
 
     public function getStartTime(): int

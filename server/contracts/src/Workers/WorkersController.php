@@ -13,15 +13,17 @@ interface WorkersController
      * @param Worker $worker
      * @return $this
      */
-    public function addWorker(Worker $worker) : Worker;
+    public function addWorker(Worker $worker): Worker;
+
+    public function getWorker(string $id): ?Worker;
 
     public function getWorkers(): array;
 
     /**
      * Send a broadcast message to all workers registered on the server
      * @param Broadcast $broadcast
-     * @throws NullMessageException
      * @return Broadcast
+     * @throws NullMessageException
      */
     public function broadcast(Broadcast $broadcast): Broadcast;
 
@@ -29,7 +31,7 @@ interface WorkersController
 
     public function haltWorker(Worker $worker): void;
 
-    public function syncWithServer():void;
+    public function syncWithServer(): void;
 
-    public function ping(Worker $worker): void;
+    public function ping(Worker $worker): bool;
 }

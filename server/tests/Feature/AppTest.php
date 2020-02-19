@@ -3,7 +3,6 @@
 
 namespace Tests\Feature;
 
-
 use ADelf\LeaderServer\App;
 use ADelf\LeaderServer\Contracts\Foundation\AppConfiguration;
 use ADelf\LeaderServer\Contracts\Notification\NotificationLog;

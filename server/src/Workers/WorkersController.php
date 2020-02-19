@@ -22,13 +22,19 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
     {
         $this->works[$worker->getIp() . $worker->getPort()] = $worker;
 
-        return $this;
+        return $worker;
     }
 
     public function getWorkers(): array
     {
         return $this->works;
     }
+
+    public function getWorker($id): ?Worker
+    {
+        return $this->works[$id] ?? null;
+    }
+
 
     /**
      * @inheritDoc
@@ -62,7 +68,7 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
     public function haltWorker(Worker $worker): void
     {
         $worker->notify(new NotifyMessage(Actions::HALT));
-        unset($this->works[$this->getWorkerId($worker)]);
+        unset($this->works[$worker->getId()]);
         event(new WorkerHaltEvent($worker));
     }
 
@@ -73,16 +79,14 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
         $this->broadcast($broadcast);
     }
 
-    public function getWorkerId(Worker $worker): string
+    public function ping(Worker $worker): bool
     {
-        return $worker->getIp() . $worker->getPort();
-    }
-
-    public function ping(Worker $worker): void
-    {
-        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(Actions::PING));
-        foreach($this->broadcast($broadcast)->failedWorkers() as $failedWorker) {
-            $this->haltWorker($failedWorker);
+        $response = $worker->notify(new NotifyMessage(Actions::PING));
+        if(!$response->isSuccess()) {
+            $this->haltWorker($worker);
+            return false;
         }
+
+        return true;
     }
 }
