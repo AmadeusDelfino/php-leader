@@ -30,8 +30,10 @@ class CommandArgument
     public function validate(): bool
     {
         if ($this->required && ($this->value === null || empty($this->value))) {
-            throw new \InvalidArgumentException('The value cannot be empty');
+            return false;
         }
+
+        return true;
     }
 
     public function name(): string

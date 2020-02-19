@@ -21,6 +21,7 @@ abstract class Command implements ConsoleRequest
     public function handler(array $params, Stdio $stdio): void
     {
         $this->fetchArgs($params);
+        $this->validateArgs();
         $this->execute($stdio);
     }
 
@@ -56,6 +57,15 @@ abstract class Command implements ConsoleRequest
             $class = $this->paramsClasses[$param];
             $class->setValue($value);
             $this->paramsClasses[$param] = $class;
+        }
+    }
+
+    protected function validateArgs(): void
+    {
+        foreach($this->paramsClasses as $name => $arg) {
+            if(!$arg->validate()) {
+                throw new \InvalidArgumentException('Arg ' . $name . ' is required.');
+            }
         }
     }
 

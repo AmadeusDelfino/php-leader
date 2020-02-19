@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e9cd5bc4-367b-4e3c-8f8d-a99bb8068bff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Cache/CacheItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/contracts/src/Event/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/contracts/src/Event/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/EventsFoundation/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/EventsFoundation/EventController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandArgument.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/CommandArgument.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/RequestHandlers/Console/HelpHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Router/ConsoleRouterHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Router/ConsoleRouterHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/Services/CacheService.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/Services/CacheService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/tests/Feature/CacheTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../server/tests/Feature/CacheTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +99,7 @@
       <workItem from="1581975902178" duration="8385000" />
       <workItem from="1582060052554" duration="2221000" />
       <workItem from="1582062854065" duration="9000000" />
-      <workItem from="1582133026824" duration="13657000" />
+      <workItem from="1582133026824" duration="14273000" />
     </task>
     <task id="LOCAL-00001" summary="Fix php work dir">
       <created>1581624119360</created>
@@ -358,14 +353,20 @@
       <option name="project" value="LOCAL" />
       <updated>1582145974273</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fix arg init; renamed popEvent to getAndRemoveEvent, also change array_pop to array_shift. Well, I need to think in a better name; add more cache tests">
+      <created>1582147674026</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1582147674026</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Request para worker" />
     <MESSAGE value="Refac app" />
     <MESSAGE value="Worker actions in enum; resync workers action" />
     <MESSAGE value="Alias nas interfaces com mesmo nome das classes concretas" />
@@ -390,7 +391,8 @@
     <MESSAGE value="More app tests" />
     <MESSAGE value="Add app config test; add provider test; add worker controller test; add worker request test; add worker test; refac some codes" />
     <MESSAGE value="A lot of cache tests; fix expire date cache item;" />
-    <option name="LAST_COMMIT_MESSAGE" value="A lot of cache tests; fix expire date cache item;" />
+    <MESSAGE value="Fix arg init; renamed popEvent to getAndRemoveEvent, also change array_pop to array_shift. Well, I need to think in a better name; add more cache tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix arg init; renamed popEvent to getAndRemoveEvent, also change array_pop to array_shift. Well, I need to think in a better name; add more cache tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="134" width="508" height="845" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582140948805">
@@ -409,10 +411,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="738" y="161" width="501" height="791" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581965421822" />
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582145974212">
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2" timestamp="1582147673939">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582145974212" />
+    <state x="817" y="91" width="864" height="989" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582147673939" />
     <state x="242" y="120" width="1482" height="879" key="DiffContextDialog" timestamp="1581699764196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -433,10 +435,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1581957966756" />
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582145975227">
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1582147675209">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582145975227" />
+    <state x="588" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582147675209" />
     <state x="760" y="468" width="467" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581959815042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
