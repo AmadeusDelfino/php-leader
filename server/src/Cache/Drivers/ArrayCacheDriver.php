@@ -84,7 +84,7 @@ class ArrayCacheDriver implements CacheDriver
         }
 
         $this->items = array_merge($this->items, $this->queue[$transactionKey]);
-        unset($transactionKey-$this->queue[$transactionKey]);
+        unset($this->queue[$transactionKey]);
 
         return true;
     }

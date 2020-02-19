@@ -20,7 +20,22 @@
       "ADelf\\LeaderServer\\WorkerActions\\": "worker_actions/src/",
       "ADelf\\Processor\\": "processor/src/",
       "ADelf\\LeaderWorker\\": "worker/src/",
-      "ADelf\\LeaderEventProcess\\": "eventProcessListener/src/"
+      "ADelf\\LeaderEventProcess\\": "eventProcessListener/src/",
+      "Tests\\": "tests/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+
+  "require-dev": {
+    "phpunit/phpunit": "^9"
   }
 }
