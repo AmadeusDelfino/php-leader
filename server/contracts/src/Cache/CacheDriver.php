@@ -75,29 +75,27 @@ interface CacheDriver
     /**
      * Sets a cache item to be persisted later.
      *
+     * @param string $transactionKey
+     *   The key of transaction
      * @param CacheItem $item
      *   The cache item to save.
      *
      * @return bool
      *   False if the item could not be queued or if a commit was attempted and failed. True otherwise.
      */
-    public function saveDeferred(CacheItem $item): bool;
+    public function saveDeferred(string $transactionKey, CacheItem $item): bool;
+
+    public function transaction(): string;
 
     /**
      * Persists any deferred cache items.
      *
+     * @param string $transactionKey
+     *  The key of transaction
      * @return bool
      *   True if all not-yet-saved items were successfully saved or there were none. False otherwise.
      */
-    public function commit(): bool;
-
-    /**
-     * Delete any deferred cache items.
-     *
-     * @return bool
-     *   True if all not-yet-saved items were successfully saved or there were none. False otherwise.
-     */
-    public function rollback(): bool;
+    public function commit(string $transactionKey): bool;
 
     /**
      * Count total of items in cache.
@@ -105,4 +103,14 @@ interface CacheDriver
      * @return int
      */
     public function count(): int;
+
+    /**
+     * Delete any deferred cache items.
+     *
+     * @param string $transactionId
+     *  The key of transaction
+     * @return bool
+     *   True if all not-yet-saved items were successfully saved or there were none. False otherwise.
+     */
+    public function rollback(string $transactionId): bool;
 }

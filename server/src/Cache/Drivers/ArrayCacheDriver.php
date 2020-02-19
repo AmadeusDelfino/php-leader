@@ -63,9 +63,13 @@ class ArrayCacheDriver implements CacheDriver
     /**
      * @inheritDoc
      */
-    public function saveDeferred(CacheItem $item): bool
+    public function saveDeferred(string $transactionKey, CacheItem $item): bool
     {
-        $this->queue[$item->getKey()] = $item;
+        if (!isset($this->queue[$transactionKey])) {
+            throw new \InvalidArgumentException('Transaction ' . $transactionKey . ' not stated');
+        }
+
+        $this->queue[$transactionKey][$item->getKey()] = $item;
 
         return true;
     }
@@ -73,16 +77,25 @@ class ArrayCacheDriver implements CacheDriver
     /**
      * @inheritDoc
      */
-    public function commit(): bool
+    public function commit(string $transactionKey): bool
     {
-        $this->items = array_merge($this->items, $this->queue);
+        if (!isset($this->queue[$transactionKey])) {
+            throw new \InvalidArgumentException('Transaction ' . $transactionKey . ' not stated');
+        }
+
+        $this->items = array_merge($this->items, $this->queue[$transactionKey]);
+        unset($transactionKey-$this->queue[$transactionKey]);
 
         return true;
     }
 
-    public function rollback(): bool
+    public function rollback(string $transactionKey): bool
     {
-        $this->queue = [];
+        if (!isset($this->queue[$transactionKey])) {
+            throw new \InvalidArgumentException('Transaction ' . $transactionKey . ' not stated');
+        }
+
+        unset($this->queue[$transactionKey]);
 
         return true;
     }
@@ -90,5 +103,13 @@ class ArrayCacheDriver implements CacheDriver
     public function count(): int
     {
         return count($this->items);
+    }
+
+    public function transaction(): string
+    {
+        $key = uniqid(random_int(0, 9999), true);
+        $this->queue[$key] = [];
+
+        return $key;
     }
 }
