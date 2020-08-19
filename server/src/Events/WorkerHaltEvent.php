@@ -12,5 +12,5 @@ class WorkerHaltEvent extends Fire
     protected $listeners = [
         WorkerHaltListener::class,
     ];
-    protected $identificer = 'worker_halt';
+    protected $identifier = 'worker_halt';
 }

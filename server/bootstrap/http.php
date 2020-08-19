@@ -17,4 +17,4 @@ $port = app()->config()->get('app.port');
 $socket = new \React\Socket\Server($port, $loop);
 $server->listen($socket);
 
-echo 'Server running at port ' . $port;
+echo 'Server HTTP listening on: ' . $socket->getAddress() . "\n";

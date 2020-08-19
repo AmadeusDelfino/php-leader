@@ -84,6 +84,7 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
         $response = $worker->notify(new NotifyMessage(Actions::PING));
         if(!$response->isSuccess()) {
             $this->haltWorker($worker);
+
             return false;
         }
 

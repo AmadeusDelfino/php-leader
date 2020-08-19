@@ -9,22 +9,19 @@ use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\WorkerHealthCheck;
 use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
 use ADelf\LeaderServer\Services\WorkerNotificationService;
+use React\Socket\ConnectionInterface;
 
 class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
 {
-    protected $id;
-    protected $ip;
-    protected $port;
     protected $meta;
     protected $lastNotificationResponse;
     protected $lastRequestResponse;
+    protected $connection;
 
-    public function __construct(string $ip, int $port, array $meta = [])
+    public function __construct(ConnectionInterface $connection, array $meta = [])
     {
-        $this->ip = $ip;
-        $this->port = $port;
+        $this->connection = $connection;
         $this->meta = $meta;
-        $this->id = $ip . $port;
     }
 
     public function getIp(): string
@@ -80,5 +77,10 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     public function getId(): string
     {
         return $this->id;
+    }
+
+    public function getConnection(): ConnectionInterface
+    {
+        return $this->connection;
     }
 }

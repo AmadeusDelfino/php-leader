@@ -4,8 +4,9 @@
 namespace ADelf\LeaderServer\Cache;
 
 use ADelf\LeaderServer\Contracts\Cache\CacheDriver;
+use ADelf\LeaderServer\Contracts\Cache\CacheInterface;
 
-class CacheController implements \ADelf\LeaderServer\Contracts\Cache\CacheInterface
+class CacheController implements CacheInterface
 {
     protected $pool;
 

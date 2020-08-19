@@ -15,5 +15,8 @@ return [
 
         // help
         'help' => \ADelf\LeaderServer\RequestHandlers\Console\HelpHandler::class,
+    ],
+    'tcp' => [
+        'ping' => \ADelf\LeaderServer\RequestHandlers\Tcp\PingHandler::class,
     ]
 ];

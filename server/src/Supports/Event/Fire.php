@@ -10,7 +10,7 @@ abstract class Fire implements EventFire, \JsonSerializable
 {
     protected $data;
     protected $listeners = [];
-    protected $identificer;
+    protected $identifier;
 
     public function __construct($data)
     {
@@ -29,7 +29,7 @@ abstract class Fire implements EventFire, \JsonSerializable
 
     public function getIdentifier(): string
     {
-        return $this->identificer;
+        return $this->identifier;
     }
 
     public function jsonSerialize()
@@ -37,7 +37,7 @@ abstract class Fire implements EventFire, \JsonSerializable
         return json_encode([
             'data' => $this->data,
             'listeners' => $this->listeners,
-            'identifier' => $this->identificer,
+            'identifier' => $this->identifier,
         ]);
     }
 }

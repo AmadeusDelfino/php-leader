@@ -4,15 +4,13 @@
 namespace ADelf\LeaderServer\Contracts\Workers;
 
 
+use React\Socket\ConnectionInterface;
+
 interface Worker
 {
-    public function __construct(string $ip, int $port, array $meta = []);
+    public function __construct(ConnectionInterface $connection, array $meta = []);
 
-    public function getIp(): string;
-
-    public function getPort(): int;
-
-    public function getMeta(): array;
+    public function getConnection(): ConnectionInterface;
 
     /**
      * Notify the worker asynchronously

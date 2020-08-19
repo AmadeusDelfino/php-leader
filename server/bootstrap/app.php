@@ -6,4 +6,4 @@ use React\EventLoop\Factory;
 $app = App::instance();
 $app->start();
 
-$loop = Factory::create();
+$loop = $app->reactLoop();
