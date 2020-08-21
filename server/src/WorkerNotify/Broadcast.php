@@ -5,7 +5,7 @@ namespace ADelf\LeaderServer\WorkerNotify;
 
 
 use ADelf\LeaderServer\Contracts\Workers\Broadcast as IBroadcast;
-use ADelf\LeaderServer\Contracts\Workers\NotifyMessage;
+use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
 
 class Broadcast implements IBroadcast
@@ -14,17 +14,17 @@ class Broadcast implements IBroadcast
     protected $completed = false;
     protected $fails = [];
 
-    public function __construct(NotifyMessage $message = null)
+    public function __construct(WorkerMessageRequest $message = null)
     {
         $this->message = $message;
     }
 
-    public function getMessage(): ?NotifyMessage
+    public function getMessage(): ?WorkerMessageRequest
     {
         return $this->message;
     }
 
-    public function setMessage(NotifyMessage $message): IBroadcast
+    public function setMessage(WorkerMessageRequest $message): IBroadcast
     {
         $this->message = $message;
 

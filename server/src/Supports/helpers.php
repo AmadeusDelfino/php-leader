@@ -34,3 +34,21 @@ if (!function_exists('cache')) {
         return app()->container('cacheController');
     }
 }
+
+if (!function_exists('works')) {
+    function works(): \ADelf\LeaderServer\Contracts\Workers\WorkersController
+    {
+        return app()->container('workersController');
+    }
+}
+
+if (!function_exists('waitValue')) {
+    function waitValue($class, string $method, $params = [])
+    {
+        while(true) {
+            if(($result = $class->{$method}(...$params)) !== null) {
+                return $result;
+            }
+        }
+    }
+}

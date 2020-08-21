@@ -34,4 +34,6 @@ interface WorkersController
     public function syncWithServer(): void;
 
     public function ping(Worker $worker): bool;
+
+    public function getAvailableWorkForAction($action): ?Worker;
 }

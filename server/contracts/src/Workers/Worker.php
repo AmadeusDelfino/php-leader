@@ -15,18 +15,18 @@ interface Worker
     /**
      * Notify the worker asynchronously
      *
-     * @param NotifyMessage $message
+     * @param WorkerMessageRequest $message
      * @return NotifyResponse
      */
-    public function notify(NotifyMessage $message): NotifyResponse;
+    public function notify(WorkerMessageRequest $message): NotifyResponse;
 
     /**
      * Request a task from the worker and wait for a response
      *
-     * @param NotifyMessage $message
+     * @param WorkerMessageRequest $message
      * @return WorkerRequestResponse
      */
-    public function request(NotifyMessage $message): WorkerRequestResponse;
+    public function request(WorkerMessageRequest $message): WorkerRequestResponse;
 
     public function healthCheck(): WorkerHealthCheck;
 
@@ -37,4 +37,8 @@ interface Worker
     public function halt(): void;
 
     public function getId(): string;
+
+    public function busy(?bool $busy = null): bool;
+
+    public function hasAction(string $action): bool;
 }

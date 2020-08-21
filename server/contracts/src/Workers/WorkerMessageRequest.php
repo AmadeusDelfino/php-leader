@@ -4,7 +4,7 @@
 namespace ADelf\LeaderServer\Contracts\Workers;
 
 
-interface NotifyMessage
+interface WorkerMessageRequest
 {
     public function __construct(array $content = null);
 

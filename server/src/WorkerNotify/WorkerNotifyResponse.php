@@ -11,6 +11,7 @@ class WorkerNotifyResponse implements NotifyResponse
     protected $startTime = 0;
     protected $endTime = 0;
     protected $success = false;
+    protected $content;
 
     public function getStartTime(): int
     {
@@ -45,5 +46,15 @@ class WorkerNotifyResponse implements NotifyResponse
     public function end(): void
     {
         $this->endTime = microtime(true);
+    }
+
+    public function setContent(string $content): void
+    {
+        $this->content = $content;
+    }
+
+    public function getContent(): string
+    {
+        return $this->content;
     }
 }

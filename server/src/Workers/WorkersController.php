@@ -6,10 +6,11 @@ namespace ADelf\LeaderServer\Workers;
 
 use ADelf\LeaderServer\Contracts\Workers\Broadcast;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
+use ADelf\LeaderServer\Contracts\Workers\Worker as IWorker;
 use ADelf\LeaderServer\Events\WorkerHaltEvent;
 use ADelf\LeaderServer\Exceptions\NullMessageException;
 use ADelf\LeaderServer\WorkerActions\Enums\Actions;
-use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
+use ADelf\LeaderServer\WorkerNotify\WorkerMessageRequest;
 
 class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\WorkersController
 {
@@ -61,27 +62,27 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
 
     public function haltAllWorks(): void
     {
-        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(Actions::HALT));
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new WorkerMessageRequest(Actions::HALT));
         $this->broadcast($broadcast);
     }
 
     public function haltWorker(Worker $worker): void
     {
-        $worker->notify(new NotifyMessage(Actions::HALT));
+        $worker->notify(new WorkerMessageRequest(Actions::HALT));
         unset($this->works[$worker->getId()]);
         event(new WorkerHaltEvent($worker));
     }
 
     public function syncWithServer():void
     {
-        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new NotifyMessage(Actions::RESYNC_WITH_SERVER));
+        $broadcast = new \ADelf\LeaderServer\WorkerNotify\Broadcast(new WorkerMessageRequest(Actions::RESYNC_WITH_SERVER));
         $this->works = [];
         $this->broadcast($broadcast);
     }
 
     public function ping(Worker $worker): bool
     {
-        $response = $worker->notify(new NotifyMessage(Actions::PING));
+        $response = $worker->notify(new WorkerMessageRequest(Actions::PING));
         if(!$response->isSuccess()) {
             $this->haltWorker($worker);
 
@@ -89,5 +90,19 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
         }
 
         return true;
+    }
+
+    public function getAvailableWorkForAction($action): ?IWorker
+    {
+        foreach ($this->works as $work) {
+            /**
+             * @var $work Worker
+             */
+            if(!$work->busy() && $work->hasAction($action)) {
+                return $work;
+            }
+        }
+
+        return null;
     }
 }

@@ -20,7 +20,7 @@ interface WorkerRequestResponse
 
     public function setWorker(Worker $worker): self;
 
-    public function getMessage(): NotifyMessage;
+    public function getMessage(): WorkerMessageRequest;
 
-    public function setMessage(NotifyMessage $message): self;
+    public function setMessage(WorkerMessageRequest $message): self;
 }

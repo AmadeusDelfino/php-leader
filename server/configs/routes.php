@@ -18,5 +18,6 @@ return [
     ],
     'tcp' => [
         'ping' => \ADelf\LeaderServer\RequestHandlers\Tcp\PingHandler::class,
+        'action' => \ADelf\LeaderServer\RequestHandlers\Tcp\ActionHandler::class,
     ]
 ];

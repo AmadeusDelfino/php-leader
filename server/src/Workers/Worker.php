@@ -4,7 +4,7 @@
 namespace ADelf\LeaderServer\Workers;
 
 
-use ADelf\LeaderServer\Contracts\Workers\NotifyMessage;
+use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest;
 use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\WorkerHealthCheck;
 use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
@@ -17,6 +17,8 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     protected $lastNotificationResponse;
     protected $lastRequestResponse;
     protected $connection;
+    protected $busy = false;
+    protected $actionsAvailable = [];
 
     public function __construct(ConnectionInterface $connection, array $meta = [])
     {
@@ -49,9 +51,10 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
         return $this->lastRequestResponse;
     }
 
-    public function notify(NotifyMessage $message): NotifyResponse
+    public function notify(WorkerMessageRequest $message): NotifyResponse
     {
         $this->lastNotificationResponse = (new WorkerNotificationService())->notifyWorker($this, $message);
+
         return $this->lastNotificationResponse;
     }
 
@@ -68,9 +71,9 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     /**
      * @inheritDoc
      */
-    public function request(NotifyMessage $message): WorkerRequestResponse
+    public function request(WorkerMessageRequest $message): WorkerRequestResponse
     {
-        $this->lastRequestResponse = (new WorkerNotificationService())->requestToWorker($this, $message);
+        $this->lastRequestResponse = (new WorkerNotificationService())->syncRequestToWorker($this, $message);
         return $this->lastRequestResponse;
     }
 
@@ -82,5 +85,21 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     public function getConnection(): ConnectionInterface
     {
         return $this->connection;
+    }
+
+    public function busy(?bool $busy = null): bool
+    {
+        if(is_bool($busy)) {
+            $this->busy = $busy;
+
+            return true;
+        }
+
+        return $this->busy;
+    }
+
+    public function hasAction(string $action): bool
+    {
+        return in_array($action, $this->actionsAvailable);
     }
 }

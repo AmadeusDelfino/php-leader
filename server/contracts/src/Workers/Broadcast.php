@@ -6,9 +6,9 @@ namespace ADelf\LeaderServer\Contracts\Workers;
 
 interface Broadcast
 {
-    public function getMessage(): ?NotifyMessage;
+    public function getMessage(): ?WorkerMessageRequest;
 
-    public function setMessage(NotifyMessage $message): self;
+    public function setMessage(WorkerMessageRequest $message): self;
 
     public function isCompleted(): bool;
 

@@ -7,7 +7,7 @@ namespace Feature;
 use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
 use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
-use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
+use ADelf\LeaderServer\WorkerNotify\WorkerMessageRequest;
 use Tests\TestBase;
 
 class WorkerTest extends TestBase
@@ -15,7 +15,7 @@ class WorkerTest extends TestBase
     public function test_request_to_worker(): Worker
     {
         $worker = new \ADelf\LeaderServer\Workers\Worker('127.0.0.1', '5050');
-        $this->assertInstanceOf(WorkerRequestResponse::class, $worker->request(new NotifyMessage(['test' => 'test'])));
+        $this->assertInstanceOf(WorkerRequestResponse::class, $worker->request(new WorkerMessageRequest(['test' => 'test'])));
 
         return $worker;
     }
@@ -23,7 +23,7 @@ class WorkerTest extends TestBase
     public function test_notify_to_worker(): Worker
     {
         $worker = new \ADelf\LeaderServer\Workers\Worker('127.0.0.1', '5050');
-        $this->assertInstanceOf(NotifyResponse::class, $worker->notify(new NotifyMessage(['teste' => 'teste'])));
+        $this->assertInstanceOf(NotifyResponse::class, $worker->notify(new WorkerMessageRequest(['teste' => 'teste'])));
 
         return $worker;
     }

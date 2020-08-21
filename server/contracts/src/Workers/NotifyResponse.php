@@ -19,4 +19,8 @@ interface NotifyResponse
     public function start(): void;
 
     public function end(): void;
+
+    public function setContent(string $content): void;
+
+    public function getContent(): string;
 }

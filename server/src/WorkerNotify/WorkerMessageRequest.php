@@ -4,9 +4,9 @@
 namespace ADelf\LeaderServer\WorkerNotify;
 
 
-use ADelf\LeaderServer\Contracts\Workers\NotifyMessage as INotifyMessage;
+use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest as INotifyMessage;
 
-class NotifyMessage implements INotifyMessage
+class WorkerMessageRequest implements INotifyMessage
 {
     protected $content;
 

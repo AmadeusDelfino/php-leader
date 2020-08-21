@@ -6,7 +6,7 @@ namespace Feature;
 
 use ADelf\LeaderServer\Exceptions\NullMessageException;
 use ADelf\LeaderServer\WorkerNotify\Broadcast;
-use ADelf\LeaderServer\WorkerNotify\NotifyMessage;
+use ADelf\LeaderServer\WorkerNotify\WorkerMessageRequest;
 use ADelf\LeaderServer\Workers\Worker;
 use Tests\TestBase;
 
@@ -30,7 +30,7 @@ class WorkerControllerTest extends TestBase
     public function test_broadcast_workers(): void
     {
         #TODO implementar worker de teste para casos reais
-        $this->app->workersController()->broadcast(new Broadcast(new NotifyMessage(['teste'])));
+        $this->app->workersController()->broadcast(new Broadcast(new WorkerMessageRequest(['teste'])));
 
         $this->assertEquals(true, true);
     }

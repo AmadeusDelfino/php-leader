@@ -4,7 +4,7 @@
 namespace ADelf\LeaderServer\Workers;
 
 
-use ADelf\LeaderServer\Contracts\Workers\NotifyMessage;
+use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
 use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
 
@@ -56,12 +56,12 @@ class WorkRequestResponse implements WorkerRequestResponse
         return $this;
     }
 
-    public function getMessage(): NotifyMessage
+    public function getMessage(): WorkerMessageRequest
     {
         return $this->message;
     }
 
-    public function setMessage(NotifyMessage $message): WorkerRequestResponse
+    public function setMessage(WorkerMessageRequest $message): WorkerRequestResponse
     {
         $this->message = $message;
 
