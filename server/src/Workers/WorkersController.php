@@ -6,7 +6,6 @@ namespace ADelf\LeaderServer\Workers;
 
 use ADelf\LeaderServer\Contracts\Workers\Broadcast;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
-use ADelf\LeaderServer\Contracts\Workers\Worker as IWorker;
 use ADelf\LeaderServer\Events\WorkerHaltEvent;
 use ADelf\LeaderServer\Exceptions\NullMessageException;
 use ADelf\LeaderServer\WorkerActions\Enums\Actions;
@@ -19,11 +18,18 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
     /**
      * @inheritDoc
      */
-    public function addWorker(Worker $worker): Worker
+    public function addWorker(Worker $worker): string
     {
-        $this->works[$worker->getIp() . $worker->getPort()] = $worker;
+        $id = $worker->getConnection()->connection()->getRemoteAddress();
+        $worker->setId($id);
+        $this->works[$id] = $worker;
 
-        return $worker;
+        return $id;
+    }
+
+    public function removeWorker(string $id): void
+    {
+        unset($this->works[$id]);
     }
 
     public function getWorkers(): array
@@ -92,7 +98,7 @@ class WorkersController implements \ADelf\LeaderServer\Contracts\Workers\Workers
         return true;
     }
 
-    public function getAvailableWorkForAction($action): ?IWorker
+    public function getAvailableWorkForAction($action): ?Worker
     {
         foreach ($this->works as $work) {
             /**

@@ -13,9 +13,11 @@ interface WorkersController
      * @param Worker $worker
      * @return $this
      */
-    public function addWorker(Worker $worker): Worker;
+    public function addWorker(Worker $worker): string;
 
     public function getWorker(string $id): ?Worker;
+
+    public function removeWorker(string $id): void;
 
     public function getWorkers(): array;
 

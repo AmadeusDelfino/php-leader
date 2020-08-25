@@ -9,14 +9,11 @@ use ADelf\LeaderServer\Exceptions\MessageInvalidException;
 abstract class TcpHandler
 {
     protected $params;
-    protected $paramsValidate = [
-        'action',
-        'payload'
-    ];
+    protected $paramsValidate = [];
 
     public function __construct($params)
     {
-        $this->params = json_decode($params);
+        $this->params = $params;
         if($this->params === null) {
             throw new MessageInvalidException();
         }
@@ -26,7 +23,7 @@ abstract class TcpHandler
     protected function validateParams()
     {
         foreach ($this->paramsValidate as $param) {
-            if(!isset($this->params->{$param})) {
+            if(!isset($this->params['data']->{$param})) {
                 throw new \InvalidArgumentException('Arg ' . $param . ' is not set in request');
             }
         }

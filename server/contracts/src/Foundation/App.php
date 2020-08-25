@@ -36,4 +36,6 @@ interface App
     public function workersController(): WorkersController;
 
     public function config(): AppConfiguration;
+
+    public function reactLoop();
 }

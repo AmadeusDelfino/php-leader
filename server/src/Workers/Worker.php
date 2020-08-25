@@ -4,15 +4,16 @@
 namespace ADelf\LeaderServer\Workers;
 
 
-use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest;
+use ADelf\LeaderServer\Connection;
 use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\WorkerHealthCheck;
+use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest;
 use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
 use ADelf\LeaderServer\Services\WorkerNotificationService;
-use React\Socket\ConnectionInterface;
 
 class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
 {
+    protected $id;
     protected $meta;
     protected $lastNotificationResponse;
     protected $lastRequestResponse;
@@ -20,20 +21,10 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     protected $busy = false;
     protected $actionsAvailable = [];
 
-    public function __construct(ConnectionInterface $connection, array $meta = [])
+    public function __construct(Connection $connection, array $meta = [])
     {
         $this->connection = $connection;
         $this->meta = $meta;
-    }
-
-    public function getIp(): string
-    {
-        return $this->ip;
-    }
-
-    public function getPort(): int
-    {
-        return $this->port;
     }
 
     public function getMeta(): array
@@ -82,7 +73,7 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
         return $this->id;
     }
 
-    public function getConnection(): ConnectionInterface
+    public function getConnection(): Connection
     {
         return $this->connection;
     }
@@ -101,5 +92,10 @@ class Worker implements \ADelf\LeaderServer\Contracts\Workers\Worker
     public function hasAction(string $action): bool
     {
         return in_array($action, $this->actionsAvailable);
+    }
+
+    public function setId(string $id): void
+    {
+        $this->id = $id;
     }
 }

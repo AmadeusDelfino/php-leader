@@ -15,9 +15,9 @@ class TcpRouterHandler
     {
         $this->defineRoutes();
         $data = $this->normalizeRequest($data);
-        $actionHandler = $this->match($data->action);
+        $actionHandler = $this->match($data['data']->action);
 
-        return $this->makeResponse($data->action, $this->handleRequest($actionHandler, $data->params));
+        return $this->makeResponse($data['data']->action, $this->handleRequest($actionHandler, $data));
     }
 
     protected function makeResponse($action, $data)
@@ -30,12 +30,12 @@ class TcpRouterHandler
 
     protected function normalizeRequest($data)
     {
-        $data = json_decode($data);
-        if(!isset($data->action) || !isset($data->params)) {
+        $parsedData = json_decode($data['data']);
+        if(!isset($parsedData->action)) {
             throw new TcpRouteIncorrectFormatException('Action or params not set in tcp request.');
         }
 
-        return $data;
+        return ['data' => $parsedData, 'connection' => $data['connection']];
     }
 
     protected function match($action)
@@ -53,7 +53,7 @@ class TcpRouterHandler
             throw new RouteNotFoundException('Action ' . $actionHandler . ' not found');
         }
 
-        return (new $actionHandler)($params);
+        return (new $actionHandler($params))();
     }
 
     protected function defineRoutes(): void

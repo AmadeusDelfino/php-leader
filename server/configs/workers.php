@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'ping_time' => 5,
+    'ping_time' => 1,
 ];

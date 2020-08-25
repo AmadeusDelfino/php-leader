@@ -19,8 +19,8 @@ class WorkersListHandler extends Command
             /**
              * @var $worker Worker
              */
-            $stdio->write('----------------' . PHP_EOL);
-            $stdio->write('IP/Port: ' . $worker->getIp() . ':' . $worker->getPort());
+            $stdio->write(PHP_EOL .'----------------' . PHP_EOL);
+            $stdio->write('ID: ' . $worker->getId());
         }
     }
 }

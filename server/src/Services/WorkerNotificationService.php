@@ -4,13 +4,12 @@
 namespace ADelf\LeaderServer\Services;
 
 
-use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest;
 use ADelf\LeaderServer\Contracts\Workers\NotifyResponse;
 use ADelf\LeaderServer\Contracts\Workers\Worker;
+use ADelf\LeaderServer\Contracts\Workers\WorkerMessageRequest;
 use ADelf\LeaderServer\Contracts\Workers\WorkerRequestResponse;
 use ADelf\LeaderServer\WorkerNotify\WorkerNotifyResponse;
 use ADelf\LeaderServer\Workers\WorkRequestResponse;
-use React\Socket\ConnectionInterface;
 
 class WorkerNotificationService
 {
@@ -20,13 +19,15 @@ class WorkerNotificationService
         $worker->busy(true);
         $response->start();
         try {
-            $worker->getConnection()->on('data', function ($data) use($response){
+            $worker->getConnection()->connection()->on('data', function ($data) use($response){
+                var_dump($data);
                 $response->setContent($data);
             });
 
-            $worker->getConnection()->write($message->getPreparedContent());
-
+            $worker->getConnection()->connection()->write($message->getPreparedContent());
+            echo "start";
             waitValue($response, 'getContent');
+            echo "end";
 
             $response->setSuccess();
             $response->end();
@@ -54,11 +55,11 @@ class WorkerNotificationService
     protected function syncRequest(Worker $worker, WorkerMessageRequest $messageRequest)
     {
         $return = null;
-        $worker->getConnection()->on('data', function ($data) use($return, $messageRequest){
+        $worker->getConnection()->connection()->on('data', function ($data) use($return, $messageRequest){
             $return = $data;
         });
 
-        $worker->getConnection()->write($messageRequest->getPreparedContent());
+        $worker->getConnection()->connection()->write($messageRequest->getPreparedContent());
 
         while(true) {
             if($return !== null) {

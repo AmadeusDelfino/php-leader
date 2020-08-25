@@ -20,7 +20,7 @@ class ActionHandler extends TcpHandler
         $message = new WorkerMessageRequest($this->params);
         $response = $worker->request($message);
 
-        return $message;
+        return $response->getResponseRaw();
     }
 
     protected function getWorker(): Worker
